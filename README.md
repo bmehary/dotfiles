@@ -1,29 +1,49 @@
-# README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+# Notes
+## GNU Stow
+1 . Ignoring files/folders use `.stow-local-ignore` [link-to-doc](https://www.gnu.org/software/stow/manual/stow.html#Ignore-Lists)
 
-### What is this repository for? ###
+## Brew
+### Generate Brewfile (list of installed brew programs)
+```
+brew bundle dump --describe 
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Install from Brewfile
 
-### How do I get set up? ###
+```zsh
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+# install brew apps from dotfiles dir
+cd ~/.dotfiles && brew bundle
 
-### Contribution guidelines ###
+# or install brew apps from any dir
+brew bundle --file ~/.dotfiles/Brewfile
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+## Steps to bootstrap a new Mac
 
-### Who do I talk to? ###
+1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
 
-* Repo owner or admin
-* Other community or team contact
+```zsh
+xcode-select --install
+```
+2. Manually setup SSH temporarily by looking at repo's ssh package.
+
+3. Clone repo into new hidden directory. `~/.dotfiles`.  
+
+4. Install Homebrew, followed by the software listed in the Brewfile.
+
+5. Remove temporary ssh config file (not keys), from earlier step.
+
+6. Create symlinks in the Home directory to the real files in the repo.
+
+```zsh
+stow
+```  
+
+
+## TODO List
+
+- Create install script
