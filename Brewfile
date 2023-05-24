@@ -2,6 +2,8 @@ tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Ambitious Vim-fork focused on extensibility and agility

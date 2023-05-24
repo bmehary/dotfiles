@@ -44,6 +44,13 @@ stow
 ```  
 
 
+## Useful git repos
+- https://dotfiles.github.io/
+- [Author of antidote (tool) example](https://github.com/getantidote/zdotdir)
+- [Jake Wies - Youtuber](https://github.com/jakewies/.dotfiles)
+  - [playlist](https://www.youtube.com/playlist?list=PL1C97G3GhlHdANMFUIXTcFr14R7b7EBj9)
+
+
 ## TODO List
 
 - Create install script
