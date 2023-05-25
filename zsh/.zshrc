@@ -11,7 +11,7 @@ fi
 source ~/.zsh_plugins.zsh
 
 source ~/.aliases
-
+source ~/.functions
 
 # use vi key bindings
 bindkey -v

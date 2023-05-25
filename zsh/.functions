@@ -1,0 +1,6 @@
+
+
+function ismacos {
+	[[ $OSTYPE = *darwin* ]] || return 1
+}
+
