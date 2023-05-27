@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 
 # stow dotfiles
-#stow git
-#stow ssh
-#stow p10k
-#stow zsh
+stow git
+stow p10k
+stow ssh
+stow tmux
+stow zsh
 
 
 # load antidote
