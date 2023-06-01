@@ -21,7 +21,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
- 
+
   -- Telescope
   use {
   	'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -37,11 +37,42 @@ return require('packer').startup(function(use)
 
   -- Git plugin: Fugitive
   use('tpope/vim-fugitive')
-  
+
+  -- nvim tree
+  use 'nvim-tree/nvim-tree.lua'
+  use 'nvim-tree/nvim-web-devicons'
+
+  -- lualine
+  use {
+  	'nvim-lualine/lualine.nvim',
+  	requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
   -- Color scheme: Rose pine
   use({ 'rose-pine/neovim', as = 'rose-pine' })
   vim.cmd('colorscheme rose-pine')
 
+  -- LSP from LSP-zero.nvim
+  use {
+	'VonHeikemen/lsp-zero.nvim',
+  	branch = 'v2.x',
+  	requires = {
+    	  -- LSP Support
+	  {'neovim/nvim-lspconfig'},             -- Required
+	  {                                      -- Optional
+	    'williamboman/mason.nvim',
+	    run = function()
+		pcall(vim.cmd, 'MasonUpdate')
+	    end,
+    	  },
+	  {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+	  -- Autocompletion
+	  {'hrsh7th/nvim-cmp'},     -- Required
+	  {'hrsh7th/cmp-nvim-lsp'}, -- Required
+	  {'L3MON4D3/LuaSnip'},     -- Required
+  	}
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim
