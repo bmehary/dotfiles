@@ -49,6 +49,8 @@ stow
 - [Author of antidote (tool) example](https://github.com/getantidote/zdotdir)
 - [Jake Wies - Youtuber](https://github.com/jakewies/.dotfiles)
   - [playlist](https://www.youtube.com/playlist?list=PL1C97G3GhlHdANMFUIXTcFr14R7b7EBj9)
+- [Dotfiles in 100 secs](https://github.com/eieioxyz/Beyond-Dotfiles-in-100-Seconds)
+  - [Youtube](https://www.youtube.com/watch?v=r_MpUP6aKiQ&t=505s)
 
 
 ## TODO List
