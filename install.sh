@@ -13,3 +13,7 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
 # Bundle zsh plugins
 antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.zsh
+
+# install tmux plugin manager
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
