@@ -7,3 +7,6 @@
 - Typecraft
     - [Github](https://github.com/cpow/cpow-dotfiles)
     - [Youtube](https://www.youtube.com/watch?v=lpQMeFph1RE)
+
+
+[Nvim Tree commands](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
