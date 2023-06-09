@@ -10,3 +10,9 @@
 
 
 [Nvim Tree commands](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
+
+
+## TODO List
+
+- Add formatting, linters, etc. Maybe using [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Debugging
