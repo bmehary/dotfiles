@@ -16,3 +16,13 @@
 
 - Add formatting, linters, etc. Maybe using [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Debugging
+
+
+
+## To install
+- Run:
+`git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+- To manually sync packages `:PackerSync`
+- To install languages for LSP `:Mason`
+
