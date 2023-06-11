@@ -38,6 +38,12 @@ return require('packer').startup(function(use)
   -- Git plugin: Fugitive
   use('tpope/vim-fugitive')
 
+  -- More goodness from tpope
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  --use 'tpope/vim-repeat' -- Might not be ready to use this plugin yet
+
+
   -- nvim tree
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
