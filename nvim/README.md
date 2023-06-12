@@ -16,6 +16,11 @@
 
 - Add formatting, linters, etc. Maybe using [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Debugging
+    - [Neovim for Beginners (Medium article)](https://alpha2phi.medium.com/neovim-for-beginners-debugging-using-dap-44626a767f57)
+        - [Repo](https://github.com/alpha2phi/neovim-for-beginner/tree/16-dap1)
+    - Youtube links
+        - https://www.youtube.com/watch?v=4BnVeOUeZxc
+        - https://www.youtube.com/watch?v=gihHLsClHF0
 
 
 
