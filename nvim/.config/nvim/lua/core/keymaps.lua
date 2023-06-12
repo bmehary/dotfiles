@@ -9,9 +9,9 @@ vim.g.mapleader = " "
 -- replace esc key for exiting insert mode
 vim.keymap.set("i", "jk", "<Esc>")
 
--- allows copying into system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- allows copying into clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]]) -- system clipboard
+vim.keymap.set("n", "<leader>Y", [["+Y]]) -- vim's clipboard
 
 -- moves highlighted text up/down in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
