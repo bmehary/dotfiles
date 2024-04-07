@@ -18,3 +18,8 @@ brew "stow"
 brew "terraform"
 # Terminal multiplexer
 brew "tmux"
+
+## Optional
+
+#brew "gnupg"
+#brew "pass"
