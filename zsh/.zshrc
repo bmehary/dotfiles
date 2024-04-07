@@ -18,6 +18,9 @@ bindkey -v
 # avoid the annoying backspace/delete issue, where backspace stops deleting characters
 bindkey -v '^?' backward-delete-char
 
+# VI mode in bash scripts (for ref only)
+# set -o vi
+
 
 # Antidote path for Homebrew
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
