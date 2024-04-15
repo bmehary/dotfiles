@@ -18,8 +18,8 @@ brew "stow"
 brew "terraform"
 # Terminal multiplexer
 brew "tmux"
+# GNUPG encrypt / decrypt
+brew "gnupg"
 
 ## Optional
-
-#brew "gnupg"
 #brew "pass"
