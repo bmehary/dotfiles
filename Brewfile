@@ -21,5 +21,9 @@ brew "tmux"
 # GNUPG encrypt / decrypt
 brew "gnupg"
 
-## Optional
-#brew "pass"
+#####  Optional  #####
+# brew "jq"
+# brew "yq"
+# brew "minikube"
+# brew "helm"
+# brew "pass"
