@@ -4,6 +4,9 @@
 # TODO:
 # Create folders for stow files, if they don't exist, before stowing (below).
 # For folders like ~/.ssh & ~/.gnupg, run chmod 700
+# 
+# To create SSH keys:
+# ssh-keygen
 
 
 # stow dotfiles
