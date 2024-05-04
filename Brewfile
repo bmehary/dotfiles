@@ -20,6 +20,8 @@ brew "terraform"
 brew "tmux"
 # GNUPG encrypt / decrypt
 brew "gnupg"
+# Program to executes program periodically
+brew "watch"
 
 #####  Optional  #####
 # brew "jq"
