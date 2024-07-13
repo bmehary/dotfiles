@@ -3,5 +3,7 @@
 # Add color to folders
 alias ls='ls --color'
 
+alias diff='diff --color'
+
 alias vim='nvim'
 
