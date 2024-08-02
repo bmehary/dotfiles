@@ -22,6 +22,8 @@ brew "tmux"
 brew "gnupg"
 # Program to executes program periodically
 brew "watch"
+# Bat - Cat clone with syntax highlighting and Git integration
+brew "bat"
 
 #####  Optional  #####
 # brew "jq"
