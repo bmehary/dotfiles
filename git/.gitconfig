@@ -1,33 +1,38 @@
+[alias]
+	br = branch
+    co = checkout
+	s = status 
+	# See .local/bin for helper subcommands
+[commit]
+	template = /Users/bmehary/.stCommitMsg
 [core]
 	excludesfile = /Users/bmehary/.gitignore_global
+[diff]
+    tool = p4merge
+[difftool "p4merge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[user]
-	name = Bllen Mehary
-	email = 
+[fetch]
+	prune = true
 [merge]
 	tool = p4merge
 [mergetool]
-        keepBackup = false
+    keepBackup = false
 [mergetool "p4merge"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "\"$PWD/$BASE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$REMOTE\"" "\"$PWD/$MERGED\""
-        trustExitCode = false
-        keepBackup = false
+    trustExitCode = false
+    keepBackup = false
 	keepTemporaries = false
-[diff]
-        tool = p4merge
-[difftool "p4merge"]
-        cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
-[commit]
-	template = /Users/bmehary/.stCommitMsg
-[push]
-        default = simple
-	autoSetupRemote = true
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [pull]
 	rebase = true
-[fetch]
-	prune = true
+[push]
+    default = simple
+	autoSetupRemote = true
+[user]
+	name = Bllen Mehary
+	email = 
