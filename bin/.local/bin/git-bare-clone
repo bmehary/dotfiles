@@ -1,5 +1,14 @@
 #!/usr/bin/env zsh
 
+# References:
+# Nick Nisi
+#   https://nicknisi.com/posts/git-worktrees/
+#   https://www.youtube.com/watch?v=VMJ1eAj5HgI
+
+# Cugerone.com
+#   https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/
+
+
 # TODO: Handle parameters better.
 # maybe use getopt or $@ instead of hard coding $1
 

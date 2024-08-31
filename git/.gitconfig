@@ -1,6 +1,7 @@
 [alias]
 	br = branch
 	bra = branch -a
+	cm = commit -m 
     co = checkout
 	s = status -s
 
