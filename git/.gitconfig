@@ -2,6 +2,7 @@
 	br = branch
 	bra = branch -a
 	cm = commit
+	cmm = commit -m
     co = checkout
 	s = status
 	ss = status -s
