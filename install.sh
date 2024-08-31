@@ -9,6 +9,9 @@
 # ssh-keygen
 
 
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
+
 # stow dotfiles
 stow git
 stow p10k
@@ -19,7 +22,7 @@ stow gpg --no-folding
 
 
 # load antidote
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 
 # Bundle zsh plugins
 antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.zsh
