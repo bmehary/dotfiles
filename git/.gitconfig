@@ -7,6 +7,7 @@
 	s = status
 	ss = status -s
 
+	# TODO: Add log with graph, pretty, etc..
 	l = log --oneline 
 
 	d = diff
