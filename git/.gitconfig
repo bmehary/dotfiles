@@ -1,8 +1,28 @@
 [alias]
 	br = branch
+	bra = branch -a
     co = checkout
-	s = status 
+	s = status -s
+
+	l = log --oneline 
+
+	d = diff
+	ds = diff --staged
+	dt = difftool -y
+	
+	wt = worktree
+	wta = worktree add
+	wtl = worktree list
+
+	tags = tag -l
+	remotes = remote -v
+
+	# List aliases.
+	aliases = config --get-regexp alias
+
 	# See .local/bin for helper subcommands
+	# example custom subcommand 'stub'
+	# 	git stub
 [commit]
 	template = /Users/bmehary/.stCommitMsg
 [core]

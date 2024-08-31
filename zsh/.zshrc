@@ -21,14 +21,16 @@ bindkey -v '^?' backward-delete-char
 # VI mode in bash scripts (for ref only)
 # set -o vi
 
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
 
 # Antidote path for Homebrew
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
 # Go Paths
 export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
-export GOROOT=$(brew --prefix)/opt/go/libexec
+export GOROOT=${BREW_PREFIX}/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
@@ -43,7 +45,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.0.2.jdk/Contents/Home
 eval "$(pyenv init --path)"
 
 # Poetry
-export PATH="/Users/bmehary/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #Terraform
 export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"

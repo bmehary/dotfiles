@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+# TODO: Handle parameters better.
+# maybe use getopt or $@ instead of hard coding $1
+
+repo="$1"
+location='.bare'
+
+echo "Creating Bare Repo..."
+
+git clone --bare "$repo" "$location"
+echo "gitdir: ./$location" > .git
+
+echo "Adjusting origin fetch locations..."
+pushd "$location" > /dev/null
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" 
+popd > /dev/null
+
+git fetch origin
+
+echo "Finished."

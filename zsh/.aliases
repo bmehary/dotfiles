@@ -2,6 +2,7 @@
 
 # Add color to folders
 alias ls='ls --color'
+alias ll='ls -alF'
 
 alias diff='diff --color'
 
