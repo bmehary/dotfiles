@@ -26,7 +26,7 @@
 
 ## To install nvim configs from scratch
 - Run:
-`git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+`git clone --depth 1 https://github.com/wbthomason/packer.nvim
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
 - To manually sync packages `:PackerSync`
 - To install languages for LSP `:Mason`
