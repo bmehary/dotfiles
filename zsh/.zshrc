@@ -10,6 +10,9 @@ fi
 # generate plugins
 source ~/.zsh_plugins.zsh
 
+#plugins=(… zsh-completions)
+autoload -U compinit && compinit
+
 source ~/.aliases
 source ~/.functions
 

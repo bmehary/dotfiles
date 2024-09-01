@@ -1,7 +1,12 @@
+
+# Taps
 tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+
+# Git source control management
+brew "git"
 # Plugin manager for zsh, inspired by antigen and antibody
 brew "antidote"
 # Open source programming language to build simple/reliable/efficient software
