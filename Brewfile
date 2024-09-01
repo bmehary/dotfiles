@@ -33,6 +33,8 @@ brew "bat"
 #####  Optional  #####
 # brew "jq"
 # brew "yq"
+# brew "yarn"
 # brew "minikube"
 # brew "helm"
+# brew "podman"
 # brew "pass"
