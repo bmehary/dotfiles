@@ -7,8 +7,8 @@
 	s = status
 	ss = status -s
 
-	# TODO: Add log with graph, pretty, etc..
-	l = log --oneline 
+	l = log --oneline --graph --decorate --parents 
+	la = log --oneline --graph --decorate --parents --all
 
 	d = diff
 	ds = diff --staged
