@@ -5,6 +5,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
+# Modern Bash Shell
+brew "bash"
 # Git source control management
 brew "git"
 # Plugin manager for zsh, inspired by antigen and antibody
