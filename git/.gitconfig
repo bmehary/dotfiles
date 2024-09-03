@@ -8,10 +8,11 @@
 	ss = status -s
 
 	l = log --oneline --graph --decorate --parents 
-	la = log --oneline --graph --decorate --parents --all
+	la = l --all
 
 	d = diff
 	ds = diff --staged
+	dn = ds --name-only
 	dt = difftool -y
 	
 	wt = worktree
