@@ -40,3 +40,5 @@ brew "bat"
 # brew "helm"
 # brew "podman"
 # brew "pass"
+## BATS - Bash Automated Testing System
+# brew "bats-core"
