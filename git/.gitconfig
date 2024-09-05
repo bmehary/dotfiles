@@ -34,7 +34,11 @@
 [core]
 	excludesfile = /Users/bmehary/.gitignore_global
 [diff]
-    tool = p4merge
+	context = 3
+	tool = p4merge 
+[difftool]
+	prompt = false 
+	trustExitCode = false
 [difftool "p4merge"]
     cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
@@ -46,13 +50,13 @@
 	tool = p4merge
 [mergetool]
     keepBackup = false
+	keepTemporaries = false
+	prompt = false
 [mergetool "p4merge"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "\"$PWD/$BASE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$REMOTE\"" "\"$PWD/$MERGED\""
     trustExitCode = false
-    keepBackup = false
-	keepTemporaries = false
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [pull]
 	rebase = true
