@@ -31,8 +31,6 @@
 - To manually sync packages `:PackerSync`
 - To install languages for LSP `:Mason`
 
-- To install languages for LSP `:Mason`
-
 
 ## To Uninstall nvim configs
 - Run: `rm -rf ~/.local/share/nvim`
