@@ -29,18 +29,22 @@ brew "tmux"
 brew "gnupg"
 # Program to executes program periodically
 brew "watch"
-# Bat - Cat clone with syntax highlighting and Git integration
-brew "bat"
 # GNU sed
 brew "gnu-sed"
 # GNU Grep
 brew "grep"
+
+
+# ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
+# Bat - Cat clone with syntax highlighting and Git integration
+brew "bat"
 # ripgrep - recursively searches the current directory for a regex pattern
 brew "ripgrep"
 # Fuzzy finder
 # brew "fzf"
 # Zioxide - Improved 'cd' command
 # brew "zoxide"
+# ----- End of tools -----
 
 #####  Optional  #####
 # brew "jq"
