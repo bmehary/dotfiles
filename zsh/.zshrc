@@ -9,16 +9,16 @@ fi
 # Initialize completions
 autoload -U compinit && compinit
 
+# generate plugins
+source ~/.zsh_plugins.zsh
+
+source ~/.zsh_aliases
+source ~/.zsh_functions
+
 # Completions
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
-
-# generate plugins
-source ~/.zsh_plugins.zsh
-
-source ~/.aliases
-source ~/.functions
 
 # use vi key bindings
 bindkey -v
