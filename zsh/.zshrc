@@ -6,12 +6,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
+# Initialize completions
+autoload -U compinit && compinit
+
+# Completions
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
 
 # generate plugins
 source ~/.zsh_plugins.zsh
-
-#plugins=(… zsh-completions)
-autoload -U compinit && compinit
 
 source ~/.aliases
 source ~/.functions

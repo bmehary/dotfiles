@@ -41,9 +41,9 @@ brew "bat"
 # ripgrep - recursively searches the current directory for a regex pattern
 brew "ripgrep"
 # Fuzzy finder
-# brew "fzf"
+brew "fzf"
 # Zioxide - Improved 'cd' command
-# brew "zoxide"
+brew "zoxide"
 # ----- End of tools -----
 
 #####  Optional  #####
