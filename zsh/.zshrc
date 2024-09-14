@@ -31,6 +31,9 @@ bindkey -v '^?' backward-delete-char
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
+# Add Homebrew's sbin to path
+export PATH="${BREW_PREFIX}/sbin:$PATH"
+
 # Antidote path for Homebrew
 source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 antidote load
@@ -53,9 +56,6 @@ eval "$(pyenv init --path)"
 
 # Poetry
 export PATH="$HOME/.local/bin:$PATH"
-
-#Terraform
-export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

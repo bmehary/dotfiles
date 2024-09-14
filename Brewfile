@@ -22,7 +22,7 @@ brew "pyenv"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Tool to build, change, and version infrastructure
-brew "terraform"
+brew "hashicorp/tap/terraform"
 # Terminal multiplexer
 brew "tmux"
 # GNUPG encrypt / decrypt
@@ -56,3 +56,14 @@ brew "zoxide"
 # brew "pass"
 ## BATS - Bash Automated Testing System
 # brew "bats-core"
+
+
+##### INFORMATIONAL ONLY #####
+
+## BREW COMMANDS ##
+# brew list
+# brew install <package>
+# brew update
+# brew upgrade
+# brew doctor
+# brew cleanup
