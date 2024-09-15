@@ -5,15 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-# Initialize completions
-autoload -U compinit && compinit
+source ~/.zsh_aliases
+source ~/.zsh_functions
 
 # generate plugins
 source ~/.zsh_plugins.zsh
 
-source ~/.zsh_aliases
-source ~/.zsh_functions
+# Initialize completions
+autoload -U compinit && compinit
 
 # Completions
 eval "$(zoxide init zsh)"
@@ -41,8 +40,7 @@ antidote load
 # Go Paths
 export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
 export GOROOT=${BREW_PREFIX}/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 
 # Java Paths

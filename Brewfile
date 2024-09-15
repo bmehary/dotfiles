@@ -17,6 +17,8 @@ brew "go"
 brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
+# Fronend package manager
+brew "yarn"
 # Python version management
 brew "pyenv"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -33,7 +35,10 @@ brew "watch"
 brew "gnu-sed"
 # GNU Grep
 brew "grep"
-
+# # JSON processor cli
+# brew "jq"
+# YAML processor cli
+brew "yq"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
@@ -47,9 +52,6 @@ brew "zoxide"
 # ----- End of tools -----
 
 #####  Optional  #####
-# brew "jq"
-# brew "yq"
-# brew "yarn"
 # brew "minikube"
 # brew "helm"
 # brew "podman"
@@ -60,10 +62,17 @@ brew "zoxide"
 
 ##### INFORMATIONAL ONLY #####
 
-## BREW COMMANDS ##
+## cli commands ##
 # brew list
 # brew install <package>
 # brew update
 # brew upgrade
 # brew doctor
 # brew cleanup
+# brew tap
+
+## Brewfile related cli commands ##
+# brew bundle
+# brew bundle --file <path-to-Brewfile>
+# brew bundle list
+# brew bundle check
