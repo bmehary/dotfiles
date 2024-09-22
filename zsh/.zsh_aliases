@@ -9,8 +9,6 @@ alias ll='ls -alF'
 
 
 alias diff='diff --color'
-alias sed='gsed'
-alias grep='ggrep'
 alias vim='nvim'
 
 # test command

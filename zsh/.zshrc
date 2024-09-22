@@ -37,11 +37,25 @@ export PATH="${BREW_PREFIX}/sbin:$PATH"
 source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
+# GNU coreutils
+export PATH="${BREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+# GNU findutils
+export PATH="${BREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
+# GNU getopt
+export PATH="${BREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
+# GNU awk
+export PATH="${BREW_PREFIX}/opt/gawk/libexec/gnubin:$PATH"
+# GNU sed
+export PATH="${BREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
+# GNU grep
+export PATH="${BREW_PREFIX}/opt/grep/libexec/gnubin:$PATH"
+# GNU make
+export PATH="${BREW_PREFIX}/opt/make/libexec/gnubin:$PATH"
+
 # Go Paths
 export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
 export GOROOT=${BREW_PREFIX}/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-
 
 # Java Paths
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home

@@ -27,18 +27,28 @@ brew "stow"
 brew "hashicorp/tap/terraform"
 # Terminal multiplexer
 brew "tmux"
-# GNUPG encrypt / decrypt
+# GNU Privacy Guard
 brew "gnupg"
-# Program to executes program periodically
-brew "watch"
+# GNU awk
+brew "gawk"
 # GNU sed
 brew "gnu-sed"
 # GNU Grep
 brew "grep"
+# GNU Core Utils
+brew "coreutils"
+# GNU find, xargs, locate
+brew "findutils"
+# GNU get options
+brew "gnu-getopt"
+# GNU make
+brew "make"
 # # JSON processor cli
 # brew "jq"
 # YAML processor cli
 brew "yq"
+# Program to executes program periodically
+brew "watch"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
