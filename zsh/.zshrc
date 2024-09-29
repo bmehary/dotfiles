@@ -37,6 +37,9 @@ export PATH="${BREW_PREFIX}/sbin:$PATH"
 source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
+# Dotfiles helper script
+export PATH="$HOME/.dotfiles:$PATH"
+
 # GNU coreutils
 export PATH="${BREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
 # GNU findutils

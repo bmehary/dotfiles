@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+
+echo "Hello from dotfiles"
+
+if ! [ -x "$(command -v ansible)" ]; then
+    echo "Ansible not found. Please install manually."
+fi
+
