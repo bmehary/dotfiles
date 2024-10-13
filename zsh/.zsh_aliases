@@ -14,7 +14,7 @@ alias vim='nvim'
 # test command
 #[ $(command -v kubectl) ]; echo $? &&  echo "Hello"
 
-[ $(command -v bat) ] && alias cat='bat' 
+# [ $(command -v bat) ] && alias cat='bat' 
 [ $(command -v git) ] && alias g='git' 
 [ $(command -v kubectl) ] && alias k='kubectl' 
 

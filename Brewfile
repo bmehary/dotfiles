@@ -51,6 +51,8 @@ brew "yq"
 brew "watch"
 # CLI for bitwarden 'bw'
 brew "bitwarden-cli"
+# Community based man pages of common usage for commands
+brew "tldr"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
