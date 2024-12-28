@@ -66,6 +66,7 @@ brew "zoxide"
 # ----- End of tools -----
 
 #####  Optional  #####
+# brew "kcat"
 # brew "minikube"
 # brew "helm"
 # brew "podman"
