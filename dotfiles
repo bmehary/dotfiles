@@ -7,3 +7,6 @@ if ! [ -x "$(command -v ansible)" ]; then
     echo "Ansible not found. Please install manually."
 fi
 
+ANSIBLE_DIR='ansible'
+ANSIBLE_CONFIG="$ANSIBLE_DIR/ansible.cfg"\
+    ansible-playbook "$ANSIBLE_DIR/main.yml"
