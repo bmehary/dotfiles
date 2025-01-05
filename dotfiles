@@ -3,10 +3,67 @@
 
 echo "Hello from dotfiles"
 
+detect_os() {
+  if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    echo $ID
+  else
+    echo $(uname -s | tr '[:upper:]' '[:lower:]')
+  fi
+}
+
+function macos_setup() {
+  if ! [ -x "$(command -v brew)" ]; then
+    echo "Installing Homebrew"
+    /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"
+  fi
+  if ! [ -x "$(command -v ansible)" ]; then
+    echo "Installing Ansible"
+    _cmd "brew install ansible"
+  fi
+  if ! [ -x "$(command -v git)" ]; then
+    echo "Installing Git"
+    _cmd "brew install git"
+  fi
+}
+
+function ubuntu_setup() {
+    echo "ubuntu setup...do nothing"
+}
+
+function arch_setup() {
+    echo "arch setup...do nothing"
+}
+
+dotfiles_os=$(detect_os)
+echo "Loading Setup for detected OS: $dotfiles_os"
+case $dotfiles_os in
+  ubuntu)
+    ubuntu_setup
+    ;;
+  arch)
+    arch_setup
+    ;;
+  darwin)
+    macos_setup
+    ;;
+  *)
+    echo 'Unsupported OS'
+    ;;
+esac
+
+
 if ! [ -x "$(command -v ansible)" ]; then
     echo "Ansible not found. Please install manually."
+    exit 1
 fi
 
+echo "Running ansible playbook"
+
 ANSIBLE_DIR='ansible'
-ANSIBLE_CONFIG="$ANSIBLE_DIR/ansible.cfg"\
-    ansible-playbook "$ANSIBLE_DIR/main.yml"
+ANSIBLE_MAIN_PATH=${ANSIBLE_DIR}/main.yml
+ANSIBLE_CONFIG_PATH=${ANSIBLE_DIR}/ansible.cfg
+ANSIBLE_REQ_PATH=${ANSIBLE_DIR}/requirements/common.yml
+
+ANSIBLE_CONFIG=$ANSIBLE_CONFIG_PATH ansible-galaxy install -r $ANSIBLE_REQ_PATH
+ANSIBLE_CONFIG=$ANSIBLE_CONFIG_PATH ansible-playbook $ANSIBLE_MAIN_PATH

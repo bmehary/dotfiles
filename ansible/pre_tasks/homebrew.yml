@@ -1,0 +1,20 @@
+---
+# AN EXAMPLE PRE_TASK
+# TODO: Remove when done exploring with ansible
+
+- name: Ensuring Homebrew Is Installed
+  stat:
+    path: /usr/local/bin/brew
+  register: homebrew_check
+
+# - name: Fail If Homebrew Is Not Installed
+#   fail:
+#     msg: Homebrew is missing, install from http://brew.sh
+#   when:
+#     - not homebrew_check.stat.exists
+
+- name: Homebrew Not Found. Installing Homebrew
+  # shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  shell: echo "FAKING A HOMEBREW INSTALL"
+  when:
+    - not homebrew_check.stat.exists
