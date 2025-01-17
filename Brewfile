@@ -72,6 +72,7 @@ brew "zoxide"
 # brew "podman"
 # brew "pass"
 # brew "ansible"
+# brew "yamllint"
 ## BATS - Bash Automated Testing System
 # brew "bats-core"
 

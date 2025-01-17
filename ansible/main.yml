@@ -18,6 +18,15 @@
       ansible.builtin.debug:
         var: ansible_facts
       when: print_ansible_facts
+      tags:
+        - always
+    
+    - name: Print current run tags
+      ansible.builtin.debug:
+        var: ansible_run_tags
+      when: print_ansible_facts
+      tags:
+        - always
 
     # ansible_facts need to be gather for `when` clause to work
     - name: Run macos task
@@ -28,3 +37,12 @@
     - name: Run ubuntu task
       ansible.builtin.command: pwd
       when: ansible_distribution == "Ubuntu"
+
+    - name: Run macos task (installs tag)
+      ansible.builtin.command: pwd
+      when: ansible_distribution == "MacOSX"
+      tags:
+        - installs
+
+  roles:
+    - stow
