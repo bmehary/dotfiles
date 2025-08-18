@@ -1,0 +1,13 @@
+# For more information on .gitattributes
+# https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings
+# https://git-scm.com/docs/gitattributes
+
+# Auto detect text files
+* text=auto
+
+# Set scripts to LF
+*.sh text eol=lf
+*.bats text eol=lf
+
+*.xml text eol=lf
+

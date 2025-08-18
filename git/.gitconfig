@@ -9,6 +9,7 @@
 
 	l = log --oneline --graph --decorate --parents 
 	la = l --all
+	lo = log --oneline
 
 	d = diff
 	ds = diff --staged
