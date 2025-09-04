@@ -8,3 +8,5 @@ make sure to clone the tpm package
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
 install plugins with `prefix + I` (see `.tmux.conf` file)
+
+list of commands @ `prefix + ?`
