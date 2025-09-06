@@ -63,6 +63,14 @@ brew "ripgrep"
 brew "fzf"
 # Zioxide - Improved 'cd' command
 brew "zoxide"
+# Eza - Improved 'ls' command
+brew "eza"
+# Wezterm - Modern Terminal
+# brew "wezterm"
+# Ghostty - Modern Terminal
+# brew "ghostty"
+# Zellij - Terminal workspace (think tmux)
+# brew "zellij"
 # ----- End of tools -----
 
 #####  Optional  #####
@@ -82,6 +90,7 @@ brew "zoxide"
 ## cli commands ##
 # brew list
 # brew install <package>
+# brew uninstall <package>
 # brew update
 # brew upgrade
 # brew doctor

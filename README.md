@@ -43,6 +43,16 @@ xcode-select --install
 stow
 ```  
 
+## Usage of stow
+### Stow one package
+```zsh
+stow -S <package>
+```
+
+### Unstow a package
+```zsh
+stow -D <package>
+```
 
 ## Useful git repos
 - https://dotfiles.github.io/

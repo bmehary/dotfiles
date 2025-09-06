@@ -4,7 +4,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Add color to folders
-alias ls='ls --color'
+alias ls='eza --icons --git'
+#alias ls='ls --color'
 alias ll='ls -alF'
 
 

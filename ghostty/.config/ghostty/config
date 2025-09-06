@@ -1,0 +1,43 @@
+# Config reference - https://ghostty.org/docs/config
+
+# Default configs: ghostty +show-config --default --docs
+# List key bindings: ghostty +list-keybinds
+
+# Default reload configs 
+    ## macos: cmd+shift+,
+    ## linux: ctrl+shift+,
+
+# LEADER KEY: CTRL + F  (Note: there's not leader key in ghostty)
+
+
+### KEY BINDINGS ###
+
+# Reload config: LEADER + r
+keybind = ctrl+f>r=reload_config
+
+# Tab management 
+keybind = ctrl+f>c=new_tab
+keybind = ctrl+f>x=close_tab
+keybind = ctrl+f>p=previous_tab
+keybind = ctrl+f>n=next_tab
+
+# split pane vertical
+keybind = ctrl+f>\=new_split:right
+
+# split pane horizontal
+keybind = ctrl+f>-=new_split:down
+
+# select panes with vi motion
+keybind = ctrl+f>h=goto_split:left
+keybind = ctrl+f>j=goto_split:bottom 
+keybind = ctrl+f>k=goto_split:top
+keybind = ctrl+f>l=goto_split:right
+
+# resize panes with vi motion using shift
+keybind = ctrl+f>shift+h=resize_split:left,10
+keybind = ctrl+f>shift+j=resize_split:down,10
+keybind = ctrl+f>shift+k=resize_split:up,10
+keybind = ctrl+f>shift+l=resize_split:right,10
+
+# maximize current pane
+keybind = ctrl+f>m=toggle_split_zoom
