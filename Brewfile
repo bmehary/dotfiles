@@ -54,6 +54,8 @@ brew "watch"
 brew "bitwarden-cli"
 # Community based man pages of common usage for commands
 brew "tldr"
+# Spotlight on steroids
+brew "raycast"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
