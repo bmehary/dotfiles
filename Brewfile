@@ -1,9 +1,10 @@
 
 # Taps
-tap "hashicorp/tap"
-tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/cask"
+# tap "homebrew/bundle"
+tap "hashicorp/tap"
+tap "nikitabobko/tap"
 
 # Modern Bash Shell
 brew "bash"
