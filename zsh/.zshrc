@@ -56,14 +56,16 @@ export PATH="${BREW_PREFIX}/opt/grep/libexec/gnubin:$PATH"
 export PATH="${BREW_PREFIX}/opt/make/libexec/gnubin:$PATH"
 
 # Go Paths
-export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
+export GOPATH=$HOME/go-workspace 
 export GOROOT=${BREW_PREFIX}/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # Java Paths
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.0.2.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.0.2.jdk/Contents/Home
+# Note: install SDKMAN! to manage java versions (http://sdkman.io/)
+#   - Install java & maven via SDKMAN.
 
 # Python Paths
 # Pyenv Paths
@@ -74,3 +76,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
