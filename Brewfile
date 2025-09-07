@@ -5,6 +5,7 @@ tap "homebrew/cask"
 # tap "homebrew/bundle"
 tap "hashicorp/tap"
 tap "nikitabobko/tap"
+tap "FelixKratz/formulae"
 
 # Modern Bash Shell
 brew "bash"
@@ -56,6 +57,10 @@ brew "bitwarden-cli"
 brew "tldr"
 # Spotlight on steroids
 brew "raycast"
+# Window tiling manager
+# brew "aerospace"
+# JankyBorders
+# brew "borders"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
