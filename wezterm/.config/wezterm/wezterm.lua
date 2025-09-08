@@ -23,6 +23,7 @@ config.leader = { mods = 'CTRL', key = 'a', timeout_milliseconds = 2000 }
 config.keys = {
     { mods = 'LEADER', key = '-', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
     { mods = 'LEADER', key = '\\', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+    { mods = 'LEADER', key = 'm', action = wezterm.action.TogglePaneZoomState },
 
     -- Vim motion with panes
     { mods = "CTRL", key = "h", action = wezterm.action.ActivatePaneDirection("Left") },
