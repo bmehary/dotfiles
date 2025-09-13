@@ -137,6 +137,11 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
 
+    # Move workspace to another monitor: 
+    #   command: move-workspace-to-monitor [-h|--help] [--workspace <workspace>] [--wrap-around] (next|prev)
+    alt-shift-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
+    alt-shift-ctrl-p = 'move-workspace-to-monitor --wrap-around prev' 
+
     # Full screen
     alt-shift-m = 'fullscreen'
 
