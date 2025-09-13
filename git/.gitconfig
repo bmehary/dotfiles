@@ -10,6 +10,7 @@
 	l = log --oneline --graph --decorate --parents 
 	la = l --all
 	lo = log --oneline
+    lol = lo --no-abbrev-commit
 
 	d = diff
 	ds = diff --staged
@@ -34,9 +35,11 @@
 	template = /Users/bmehary/.stCommitMsg
 [core]
 	excludesfile = /Users/bmehary/.gitignore_global
+	pager = delta
 [diff]
 	context = 3
 	tool = p4merge 
+    ; tool = vimdiff
 [difftool]
 	prompt = false 
 	trustExitCode = false
@@ -49,6 +52,7 @@
 	prune = true
 [merge]
 	tool = p4merge
+	conflictStyle = zdiff3
 [mergetool]
     keepBackup = false
 	keepTemporaries = false
@@ -67,3 +71,10 @@
 [user]
 	name = Bllen Mehary
 	email = 
+[delta]
+    dark = true             # set 'dark = true' or 'light = true' or omit for auto-detection
+	navigate = true         # use n and N to move between diff sections
+    line-numbers = true
+    side-by-side = true
+[interactive]
+	diffFilter = delta --color-only

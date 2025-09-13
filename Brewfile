@@ -73,6 +73,8 @@ brew "fzf"
 brew "zoxide"
 # Eza - Improved 'ls' command
 brew "eza"
+# Delta - Improved 'git diff' command
+brew "git-delta"
 # Wezterm - Modern Terminal
 # brew "wezterm"
 # Ghostty - Modern Terminal
