@@ -82,16 +82,25 @@ automatically-unhide-macos-hidden-apps = true
 #    if.app-id = 'com.tastytrade.desktop'
 #    run = 'layout floating'
 [[on-window-detected]]
-    if.app-id = 'com.nordvpn.NordVPN'
+    if.app-id = 'org.mozilla.firefox'
     run = 'layout floating'
 [[on-window-detected]]
-    if.app-id = 'org.mozilla.firefox'
+    if.app-id = 'com.nordvpn.NordVPN'
     run = 'layout floating'
 [[on-window-detected]]
     if.app-id = 'com.bitwarden.desktop'
     run = 'layout floating'
 [[on-window-detected]]
     if.app-id = 'com.electron.dockerdesktop'
+    run = 'layout floating'
+[[on-window-detected]]
+    if.app-id = 'org.virtualbox.app.VirtualBox'
+    run = 'layout floating'
+[[on-window-detected]]
+    if.app-id = 'org.virtualbox.app.VirtualBoxVM'
+    run = 'layout floating'
+[[on-window-detected]]
+    if.app-id = 'com.apple.ActivityMonitor'
     run = 'layout floating'
 
 # 'main' binding mode declaration
