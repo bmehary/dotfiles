@@ -32,5 +32,9 @@ config.keys = {
     { mods = "CTRL", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
 }
 
+-- Sets WSL to linux distro as the default when opening terminal
+-- config.default_domain = 'WSL:Ubuntu-24.04'
+
+
 -- Finally, return the configuration to wezterm:
 return config

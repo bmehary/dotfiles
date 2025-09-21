@@ -30,4 +30,6 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.updatetime = 50
 
+-- Copy into system clipboard
+vim.opt.clipboard = "unnamedplus"
 
