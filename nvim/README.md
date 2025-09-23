@@ -33,4 +33,20 @@
 
 
 ## To Uninstall nvim configs
-- Run: `rm -rf ~/.local/share/nvim`
+- Run: 
+    ```
+    rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
+    ```
+
+## Nvim Config Switching #####
+
+### Install nvim distro/configs
+See shell aliases for how to call these distros using [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#_nvim_appname)
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim/tree/master)
+    ```
+    git clone https://github.com/nvim-lua/kickstart.nvim.git ~/.config/nvim-kickstart
+    ```
+- [Lazyvim](https://github.com/LazyVim/LazyVim)
+    ```
+    git clone https://github.com/LazyVim/starter ~/.config/nvim-lazy
+    ```
