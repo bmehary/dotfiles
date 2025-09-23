@@ -56,3 +56,11 @@ See shell aliases for how to call these distros using [NVIM_APPNAME](https://neo
     ```
     git clone https://github.com/LazyVim/starter ~/.config/nvim-lazy
     ```
+- [NvChad](https://github.com/NvChad/NvChad)
+    ```
+    git clone https://github.com/NvChad/starter ~/.config/nvim-chad
+    ```
+- [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+    ```
+    git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim-astro
+    ```
