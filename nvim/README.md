@@ -33,7 +33,13 @@
 
 
 ## To Uninstall nvim configs
-- Run: 
+
+- Remove nvim configs: 
+    ```
+    rm -rf ~/.config/nvim
+    ```
+
+- Optional locations to remove: 
     ```
     rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
     ```
