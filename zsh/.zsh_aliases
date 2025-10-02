@@ -13,7 +13,7 @@ alias diff='diff --color'
 alias vim='nvim'
 
 ##### NVIM Config Switching #####
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+alias kickvim='NVIM_APPNAME="nvim-kickstart" nvim'
 alias lazyvim='NVIM_APPNAME="nvim-lazy" nvim'
 alias chadvim='NVIM_APPNAME="nvim-chad" nvim'
 alias astrovim='NVIM_APPNAME="nvim-astro" nvim'
