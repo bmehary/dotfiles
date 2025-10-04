@@ -1,6 +1,11 @@
 
 
-# run: source example-tmux-layout
+# Notes:
+# 1. To run this type 'source example-tmux-layout'
+# 2. C-m is Enter key
+# 3. This creates two tmux sessions: 'k8s' and 'editors'
+#    - k8s session has 3 panes in one window
+#    - editors session has 2 windows: pluto and saturn
 
 alias example-tmux-session='
     tmux new-session -d -s k8s -n main \
