@@ -1,12 +1,13 @@
 
-# Taps
-tap "homebrew/core"
-tap "homebrew/cask"
+## Taps
+# tap "homebrew/core"
+# tap "homebrew/cask"
 # tap "homebrew/bundle"
+tap "FelixKratz/formulae"
 tap "hashicorp/tap"
 tap "nikitabobko/tap"
-tap "FelixKratz/formulae"
 
+## Packages
 # Modern Bash Shell
 brew "bash"
 # Git source control management
@@ -53,8 +54,10 @@ brew "yq"
 brew "watch"
 # CLI for bitwarden 'bw'
 brew "bitwarden-cli"
+# Lazygit - A simple terminal UI for git commands
+brew "lazygit"
 # Community based man pages of common usage for commands
-brew "tldr"
+#brew "tldr"
 # Spotlight on steroids
 brew "raycast"
 # Window tiling manager
@@ -110,5 +113,10 @@ brew "git-delta"
 ## Brewfile related cli commands ##
 # brew bundle
 # brew bundle --file <path-to-Brewfile>
+# brew bundle dump
+# brew bundle dump --file <path-to-Brewfile>
 # brew bundle list
 # brew bundle check
+
+## Upgrade cask
+# brew upgrade --cask $(brew list --cask)
