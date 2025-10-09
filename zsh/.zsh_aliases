@@ -10,13 +10,14 @@ alias ll='ls -alF'
 
 
 alias diff='diff --color'
-alias vim='nvim'
 
 ##### NVIM Config Switching #####
 alias kickvim='NVIM_APPNAME="nvim-kickstart" nvim'
 alias lazyvim='NVIM_APPNAME="nvim-lazy" nvim'
 alias chadvim='NVIM_APPNAME="nvim-chad" nvim'
 alias astrovim='NVIM_APPNAME="nvim-astro" nvim'
+
+alias vim='kickvim'
 
 # test command
 #[ $(command -v kubectl) ]; echo $? &&  echo "Hello"
