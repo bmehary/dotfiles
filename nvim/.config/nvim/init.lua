@@ -7,6 +7,8 @@ print("Initializing neovim")
 if vim.g.vscode then
     -- VSCode extension
     print("Loading Neovim configuration for VS Code...")
+
+    require('core.keymaps')
 else
     -- ordinary Neovim
     print("Loading Neovim configuration for standalone use...")
