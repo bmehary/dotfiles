@@ -22,6 +22,23 @@ alias example-tmux-session='
     \; send-keys -t editors:saturn "cd ~/.dotfiles/nvim; clear" C-m \
     \; send-keys -t editors:saturn "clear; echo hello from saturn" C-m'
 
+function example-tmux-session1 () {
+    local project_name="template-project"
+    local project_dir=~
+    
+    # Create windows
+    tmux new-session -d -s $project_name -n editor
+    tmux new-window -t $project_name -n flex 
+    tmux new-window -t $project_name -n term1 
+    tmux new-window -t $project_name -n term2
+
+    # Initialize windows 
+    tmux send-keys -t $project_name:0.0 "cd $project_dir; clear; vim ." C-m
+    tmux send-keys -t $project_name:1.0 "cd $project_dir; clear; echo free use terminal" C-m
+    tmux send-keys -t $project_name:2.0 "cd $project_dir; clear; echo spare terminal" C-m
+    tmux send-keys -t $project_name:3.0 "cd $project_dir; clear; echo spare terminal" C-m
+}
+
 function example-tmux-session2 () {
     tmux new-session -d -s k8s -n main
     tmux split-window -v -t k8s:0.0
