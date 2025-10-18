@@ -27,6 +27,11 @@ ansible-playbook main.yml --syntax-check
 yamllint main.yml
 `
 
+##### Ansible-playbook syntax check
+`
+ansible-playbook main.yml --syntax-check
+`
+
 ##### Ansible-lint
 `
 ansible-lint main.yml

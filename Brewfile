@@ -93,6 +93,7 @@ brew "git-delta"
 # brew "podman"
 # brew "pass"
 # brew "ansible"
+# brew "molecule"
 # brew "yamllint"
 ## BATS - Bash Automated Testing System
 # brew "bats-core"
