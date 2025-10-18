@@ -37,6 +37,9 @@ function example-tmux-session1 () {
     tmux send-keys -t $project_name:1.0 "cd $project_dir; clear; echo free use terminal" C-m
     tmux send-keys -t $project_name:2.0 "cd $project_dir; clear; echo spare terminal" C-m
     tmux send-keys -t $project_name:3.0 "cd $project_dir; clear; echo spare terminal" C-m
+    
+    # Select window
+    tmux select-window -t term1
 }
 
 function example-tmux-session2 () {
