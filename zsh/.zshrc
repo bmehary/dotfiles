@@ -7,17 +7,13 @@ fi
 
 source ~/.zsh_aliases
 source ~/.zsh_functions
-
-# generate plugins
 source ~/.zsh_plugins.zsh
 
 # Initialize completions
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
-# Completions
-eval "$(zoxide init zsh)"
-source <(fzf --zsh)
 
+######## Set vi mode ########
 
 # use vi key bindings
 bindkey -v
@@ -27,52 +23,57 @@ bindkey -v '^?' backward-delete-char
 # VI mode in bash scripts (for ref only)
 # set -o vi
 
+######## End of vi mode ########
+
+
+######## Set Paths ########
+
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
 # Add Homebrew's sbin to path
-export PATH="${BREW_PREFIX}/sbin:$PATH"
+add_to_path_front "${BREW_PREFIX}/sbin"
 
-# Antidote path for Homebrew
-source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
-antidote load
+# GNU paths 
+add_to_path_front "${BREW_PREFIX}/opt/coreutils/libexec/gnubin"
+add_to_path_front "${BREW_PREFIX}/opt/findutils/libexec/gnubin"
+add_to_path_front "${BREW_PREFIX}/opt/gnu-getopt/bin"
+add_to_path_front "${BREW_PREFIX}/opt/gawk/libexec/gnubin"
+add_to_path_front "${BREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
+add_to_path_front "${BREW_PREFIX}/opt/grep/libexec/gnubin"
+add_to_path_front "${BREW_PREFIX}/opt/make/libexec/gnubin"
 
-# Dotfiles helper script
-export PATH="$HOME/.dotfiles:$PATH"
-
-# GNU coreutils
-export PATH="${BREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
-# GNU findutils
-export PATH="${BREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
-# GNU getopt
-export PATH="${BREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
-# GNU awk
-export PATH="${BREW_PREFIX}/opt/gawk/libexec/gnubin:$PATH"
-# GNU sed
-export PATH="${BREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
-# GNU grep
-export PATH="${BREW_PREFIX}/opt/grep/libexec/gnubin:$PATH"
-# GNU make
-export PATH="${BREW_PREFIX}/opt/make/libexec/gnubin:$PATH"
+# NOTE: GOPATH and GOROOT may no longer be need in modern go. Consider removing.
 
 # Go Paths
 export GOPATH=$HOME/go-workspace 
 export GOROOT=${BREW_PREFIX}/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+add_to_path "${GOPATH}/bin:${GOROOT}/bin"
 
-# Java Paths
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.0.2.jdk/Contents/Home
-# Note: install SDKMAN! to manage java versions (http://sdkman.io/)
+# NOTE: For java install SDKMAN! to manage java versions (http://sdkman.io/)
 #   - Install java & maven via SDKMAN.
 
-# Python Paths
-# Pyenv Paths
-eval "$(pyenv init --path)"
+# Add ~/.local/bin to PATH if it exists and is not already there
+if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
 
-# Poetry
-export PATH="$HOME/.local/bin:$PATH"
+# Dotfiles helper script
+if [ -d "$HOME/.dotfiles" ]; then add_to_path_front "$HOME/.dotfiles"; fi
+
+
+######## End of Set Paths ########
+
+
+# NOTE: Consider removing antidote in the near future.
+
+# Load antidote
+source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# Completions
+eval "$(pyenv init --path)"
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

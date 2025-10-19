@@ -40,3 +40,18 @@ ansible-lint main.yml
 ##### Run a tag
 - `ansible-playbook main.yml --tag <tag>` 
 - `dotfiles --tag <tag>`
+
+##### Ansible Vault 
+
+`
+ansible-vault ...
+`
+*** TBD
+
+##### Molecule
+
+`
+molecule ...
+`
+*** TBD
+
