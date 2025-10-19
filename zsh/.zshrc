@@ -13,19 +13,6 @@ source ~/.zsh_plugins.zsh
 autoload -Uz compinit && compinit
 
 
-######## Set vi mode ########
-
-# use vi key bindings
-bindkey -v
-# avoid the annoying backspace/delete issue, where backspace stops deleting characters
-bindkey -v '^?' backward-delete-char
-
-# VI mode in bash scripts (for ref only)
-# set -o vi
-
-######## End of vi mode ########
-
-
 ######## Set Paths ########
 
 # Save Homebrew’s installed location.
@@ -43,24 +30,24 @@ add_to_path_front "${BREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
 add_to_path_front "${BREW_PREFIX}/opt/grep/libexec/gnubin"
 add_to_path_front "${BREW_PREFIX}/opt/make/libexec/gnubin"
 
-# NOTE: GOPATH and GOROOT may no longer be need in modern go. Consider removing.
-
-# Go Paths
-export GOPATH=$HOME/go-workspace 
-export GOROOT=${BREW_PREFIX}/opt/go/libexec
-add_to_path "${GOPATH}/bin:${GOROOT}/bin"
-
-# NOTE: For java install SDKMAN! to manage java versions (http://sdkman.io/)
-#   - Install java & maven via SDKMAN.
-
 # Add ~/.local/bin to PATH if it exists and is not already there
 if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
 
 # Dotfiles helper script
 if [ -d "$HOME/.dotfiles" ]; then add_to_path_front "$HOME/.dotfiles"; fi
 
+# NOTE: For java install SDKMAN! to manage java versions (http://sdkman.io/)
+#   - Install java & maven via SDKMAN.
+
 
 ######## End of Set Paths ########
+
+
+# Use vi key bindings
+bindkey -v
+# Avoid the annoying backspace/delete issue, where backspace stops deleting characters
+bindkey -v '^?' backward-delete-char
+# set -o vi	# VI mode in bash scripts (for ref only)
 
 
 # NOTE: Consider removing antidote in the near future.

@@ -1,6 +1,6 @@
 
 
-function ismacos {
+ismacos() {
 	[[ $OSTYPE = *darwin* ]] || return 1
 }
 
