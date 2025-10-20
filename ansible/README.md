@@ -55,3 +55,17 @@ molecule ...
 `
 *** TBD
 
+### Dotfiles usage
+- All packages / tags
+    ```
+    dotfiles
+    dotfiles --tags "all"
+    ```
+- Single package / tag
+    ```
+    dotfiles --tags "stow 
+    ```
+- Multiple packages / tags
+    ```
+    dotfiles --tags "stow, bitwarden
+    ```
