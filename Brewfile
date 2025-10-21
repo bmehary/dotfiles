@@ -72,6 +72,8 @@ brew "raycast"
 brew "bat"
 # ripgrep - recursively searches the current directory for a regex pattern
 brew "ripgrep"
+# fd - simple, fast and user-friendly alternative to 'find'
+brew "fd"
 # Fuzzy finder
 brew "fzf"
 # Zioxide - Improved 'cd' command
@@ -81,9 +83,9 @@ brew "eza"
 # Delta - Improved 'git diff' command
 brew "git-delta"
 # Wezterm - Modern Terminal
-# brew "wezterm"
+brew "wezterm"
 # Ghostty - Modern Terminal
-# brew "ghostty"
+brew "ghostty"
 # Zellij - Terminal workspace (think tmux)
 # brew "zellij"
 # ----- End of tools -----
