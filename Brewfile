@@ -47,7 +47,7 @@ brew "gnu-getopt"
 # GNU make
 brew "make"
 # # JSON processor cli
-# brew "jq"
+brew "jq"
 # YAML processor cli
 brew "yq"
 # Program to executes program periodically
