@@ -56,6 +56,8 @@ brew "watch"
 brew "bitwarden-cli"
 # Lazygit - A simple terminal UI for git commands
 brew "lazygit"
+# Stats - macOS system monitor in your menu bar
+brew "stats"
 # Community based man pages of common usage for commands
 #brew "tldr"
 # Spotlight on steroids
