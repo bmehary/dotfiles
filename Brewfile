@@ -3,7 +3,7 @@
 # tap "homebrew/core"
 # tap "homebrew/cask"
 # tap "homebrew/bundle"
-tap "FelixKratz/formulae"
+tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "nikitabobko/tap"
 
@@ -57,15 +57,15 @@ brew "bitwarden-cli"
 # Lazygit - A simple terminal UI for git commands
 brew "lazygit"
 # Stats - macOS system monitor in your menu bar
-brew "stats"
+cask "stats"
 # Community based man pages of common usage for commands
 # brew "tldr"
 # Spotlight on steroids
-brew "raycast"
-# Window tiling manager
-brew "aerospace"
+cask "raycast"
+# Window tiling manager (uses "nikitabobko/tap")
+cask "aerospace"
 # JankyBorders
-brew "borders"
+brew "felixkratz/formulae/borders"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
@@ -83,9 +83,9 @@ brew "eza"
 # Delta - Improved 'git diff' command
 brew "git-delta"
 # Wezterm - Modern Terminal
-brew "wezterm"
+cask "wezterm"
 # Ghostty - Modern Terminal
-brew "ghostty"
+cask "ghostty"
 # Zellij - Terminal workspace (think tmux)
 brew "zellij"
 # ----- End of tools -----
@@ -96,15 +96,20 @@ brew "zellij"
 # brew "helm"
 # brew "podman"
 # brew "pass"
-# brew "ansible"
+brew "ansible"
+brew "ansible-lint"
 # brew "molecule"
-# brew "yamllint"
+brew "yamllint"
 ## BATS - Bash Automated Testing System
-# brew "bats-core"
+brew "bats-core"
 
 
 ##### INFORMATIONAL ONLY #####
 
+# Casks are GUI applications and formulaes are cli
+# Cask installed: brew install --cask <package>
+# Formulae installed: brew install <package>
+ 
 ## cli commands ##
 # brew list
 # brew install <package>
