@@ -59,13 +59,13 @@ brew "lazygit"
 # Stats - macOS system monitor in your menu bar
 brew "stats"
 # Community based man pages of common usage for commands
-#brew "tldr"
+# brew "tldr"
 # Spotlight on steroids
 brew "raycast"
 # Window tiling manager
-# brew "aerospace"
+brew "aerospace"
 # JankyBorders
-# brew "borders"
+brew "borders"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
@@ -87,7 +87,7 @@ brew "wezterm"
 # Ghostty - Modern Terminal
 brew "ghostty"
 # Zellij - Terminal workspace (think tmux)
-# brew "zellij"
+brew "zellij"
 # ----- End of tools -----
 
 #####  Optional  #####
