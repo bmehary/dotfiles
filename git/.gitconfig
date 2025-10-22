@@ -51,6 +51,7 @@
 [fetch]
 	prune = true
 [merge]
+	# tools: vimdiff, nvimdiff, p4merge
 	tool = p4merge
 	conflictStyle = zdiff3
 [mergetool]
