@@ -28,9 +28,11 @@
 	# List aliases.
 	aliases = config --get-regexp alias
 
-	# See .local/bin for helper subcommands
-	# example custom subcommand 'stub'
-	# 	git stub
+	# To create custom git subcommands
+	#   1. Create a file named 'git-<subcommand>' somewhere in your PATH (eg. ~/.local/bin)
+	#   2. Make it executable (chmod +x git-<subcommand>)
+	#   3. Run it as 'git <subcommand>'
+	#   4. Example: git stub
 [commit]
 	template = /Users/bmehary/.stCommitMsg
 [core]
