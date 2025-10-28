@@ -46,7 +46,9 @@ brew "findutils"
 brew "gnu-getopt"
 # GNU make
 brew "make"
-# # JSON processor cli
+# OpenSSH client and server tools 
+brew "openssh"
+# JSON processor cli
 brew "jq"
 # YAML processor cli
 brew "yq"
