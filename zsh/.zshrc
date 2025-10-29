@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+## For help with zsh builtins and functions, run `man zshbuiltins`
+## For help with zsh options, run `man zshoptions`
+## For help with zsh modules, run `man zshmodules`
+## For help with bash builtins run `help`
+
+######## ZSH Configuration File ########
 source ~/.zsh_aliases
 source ~/.zsh_functions
 source ~/.zsh_plugins.zsh
