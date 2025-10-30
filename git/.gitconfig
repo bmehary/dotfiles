@@ -21,6 +21,7 @@
 	wta = worktree add
 	wtl = worktree list
 	wtr = worktree remove
+	wtco = worktree-checkout
 
 	tags = tag -l
 	remotes = remote -v
@@ -32,16 +33,15 @@
 	#   1. Create a file named 'git-<subcommand>' somewhere in your PATH (eg. ~/.local/bin)
 	#   2. Make it executable (chmod +x git-<subcommand>)
 	#   3. Run it as 'git <subcommand>'
-	#   4. Example: git stub
 [commit]
 	template = /Users/bmehary/.stCommitMsg
 [core]
 	excludesfile = /Users/bmehary/.gitignore_global
 	pager = delta
 [diff]
-	context = 3
+	# tools: vimdiff, nvimdiff, p4merge
 	tool = p4merge 
-    ; tool = vimdiff
+	context = 3
 [difftool]
 	prompt = false 
 	trustExitCode = false

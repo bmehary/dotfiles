@@ -200,7 +200,8 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-ctrl-p = 'move-workspace-to-monitor --wrap-around prev' 
 
     # Full screen
-    alt-shift-m = 'fullscreen'
+    # alt-shift-m = 'fullscreen'
+    alt-m = 'fullscreen'
 
     # Focus monitor
     alt-shift-n = 'focus-monitor --wrap-around next'
