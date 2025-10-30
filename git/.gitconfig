@@ -20,6 +20,7 @@
 	wt = worktree
 	wta = worktree add
 	wtl = worktree list
+	wtp = worktree prune
 	wtr = worktree remove
 	wtco = worktree-checkout
 

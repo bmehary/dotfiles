@@ -32,7 +32,6 @@ die() {
 
 
 # Default values
-prefix="$(basename -s .git $(git remote get-url origin))-"
 base='origin/main'
 
 while [[ "$#" -gt 0 ]]; do
@@ -56,26 +55,23 @@ set -- "${POSITIONAL_ARGS[@]}"
 args=("$@")
 
 # check required params and arguments
-[[ ${#args[@]} -eq 0 ]] && die "Missing script arguments"
+[[ ${#args[@]} -lt 2 ]] && die "Too few script arguments"
 [[ ${#args[@]} -gt 2 ]] && die "Too many script arguments"
 
 worktree="${args[0]}"
 branch="${args[1]}"
 
-# echo "Prefix: $prefix"
-# echo "Base: $base"
-# echo "Branch: $branch"
-# echo "Worktree: $worktree"
-
-exit 0 
+echo "Base: $base"
+echo "Branch: $branch"
+echo "Worktree: $worktree"
 
 ###### CREATE WORKTREE ######
 if [[ -n "$(git branch --list "$branch")" ]]; then
-  echo "existing branch found: $branch"
+  echo "Existing branch found: $branch"
   echo "Generating new worktree from existing branch: $branch"
   git worktree add "$worktree" "$branch"
 else
-  echo "no existing branch found"
+  echo "No existing branch found"
   echo "Generating new worktree: $worktree"
   git worktree add -b "$branch" "$worktree" "$base"
 fi
