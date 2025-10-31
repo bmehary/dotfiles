@@ -17,7 +17,7 @@ location='.bare'
 
 echo "Creating Bare Repo..."
 
-git clone --bare "$repo" "$location"
+git clone --bare --single-branch "$repo" "$location"
 echo "gitdir: $location" > .git
 
 echo "Adjusting origin fetch locations..."
