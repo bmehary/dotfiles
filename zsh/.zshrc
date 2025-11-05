@@ -15,6 +15,11 @@ source ~/.zsh_aliases
 source ~/.zsh_functions
 source ~/.zsh_plugins.zsh
 
+# All custom functions and completions
+for file in $HOME/.config/zsh/*.zsh; do
+  source "$file"
+done
+
 # Initialize completions
 autoload -Uz compinit && compinit
 
