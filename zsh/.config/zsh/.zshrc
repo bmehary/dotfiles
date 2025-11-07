@@ -17,6 +17,11 @@ BREW_PREFIX=$(brew --prefix)
 source $ZDOTDIR/zsh_aliases
 source $ZDOTDIR/zsh_functions
 
+# Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
+zsh_plugins=${ZDOTDIR}/zsh_plugins
+update_antidote_bundle "$zsh_plugins" "$BREW_PREFIX"
+source ${zsh_plugins}.zsh
+
 # All custom functions and completions
 for file in $ZDOTDIR/*.zsh; do
   source "$file"
@@ -64,12 +69,6 @@ bindkey -v
 bindkey -v '^?' backward-delete-char
 # set -o vi	# VI mode in bash scripts (for ref only)
 
-########## Loading ZSH Plugins via Antidote ##########
-# NOTE: Consider removing antidote in the near future.
-
-# Load antidote
-source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
-antidote load ${ZDOTDIR}/zsh_plugins.txt
 
 # Completions
 eval "$(pyenv init --path)"

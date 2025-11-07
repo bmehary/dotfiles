@@ -17,3 +17,15 @@ add_to_path_front() {
     fi
 }
 
+update_antidote_bundle() {
+    local zsh_plugins="$1"
+    local brew_prefix="$2"
+
+    if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+      (
+        echo loading antidote and generating ${zsh_plugins}.zsh...
+        source ${brew_prefix}/opt/antidote/share/antidote/antidote.zsh
+        antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+      )
+    fi  
+}
