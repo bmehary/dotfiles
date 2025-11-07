@@ -14,7 +14,6 @@ fi
 
 source ~/.config/zsh/zsh_aliases
 source ~/.config/zsh/zsh_functions
-source ~/.config/zsh/.zsh_plugins.zsh
 
 # All custom functions and completions
 for file in $HOME/.config/zsh/*.zsh; do
@@ -71,7 +70,7 @@ bindkey -v '^?' backward-delete-char
 
 # Load antidote
 source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
-antidote load
+antidote load ${ZDOTDIR}/zsh_plugins.txt
 
 # Completions
 eval "$(pyenv init --path)"
