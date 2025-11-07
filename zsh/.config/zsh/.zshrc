@@ -5,18 +5,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
+
 ## For help with zsh builtins and functions, run `man zshbuiltins`
 ## For help with zsh options, run `man zshoptions`
 ## For help with zsh modules, run `man zshmodules`
 ## For help with bash builtins run `help`
 
 ######## ZSH Configuration File ########
-
-source ~/.config/zsh/zsh_aliases
-source ~/.config/zsh/zsh_functions
+source $ZDOTDIR/zsh_aliases
+source $ZDOTDIR/zsh_functions
 
 # All custom functions and completions
-for file in $HOME/.config/zsh/*.zsh; do
+for file in $ZDOTDIR/*.zsh; do
   source "$file"
 done
 
@@ -25,9 +27,6 @@ autoload -Uz compinit && compinit
 
 
 ######## Set Paths ########
-
-# Save Homebrew’s installed location.
-BREW_PREFIX=$(brew --prefix)
 
 # Add Homebrew's sbin to path
 add_to_path_front "${BREW_PREFIX}/sbin"
@@ -45,7 +44,7 @@ add_to_path_front "${BREW_PREFIX}/opt/make/libexec/gnubin"
 if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
 
 # Dotfiles helper script
-if [ -d "$HOME/.dotfiles" ]; then add_to_path_front "$HOME/.dotfiles"; fi
+if [ -d "$DOTFILES" ]; then add_to_path_front "$DOTFILES"; fi
 
 ######## End of Set Paths ########
 
@@ -65,7 +64,7 @@ bindkey -v
 bindkey -v '^?' backward-delete-char
 # set -o vi	# VI mode in bash scripts (for ref only)
 
-
+########## Loading ZSH Plugins via Antidote ##########
 # NOTE: Consider removing antidote in the near future.
 
 # Load antidote
