@@ -11,9 +11,10 @@ fi
 ## For help with bash builtins run `help`
 
 ######## ZSH Configuration File ########
-source ~/.zsh_aliases
-source ~/.zsh_functions
-source ~/.zsh_plugins.zsh
+
+source ~/.config/zsh/zsh_aliases
+source ~/.config/zsh/zsh_functions
+source ~/.config/zsh/.zsh_plugins.zsh
 
 # All custom functions and completions
 for file in $HOME/.config/zsh/*.zsh; do
@@ -47,12 +48,17 @@ if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
 # Dotfiles helper script
 if [ -d "$HOME/.dotfiles" ]; then add_to_path_front "$HOME/.dotfiles"; fi
 
-# NOTE: For java install SDKMAN! to manage java versions (http://sdkman.io/)
-#   - Install java & maven via SDKMAN.
-
-
 ######## End of Set Paths ########
 
+# History Configuration
+[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
+export HISTFILE=$XDG_CACHE_HOME/zsh/history    # History filepath
+export HISTSIZE=100000                         # Maximum events for internal history
+export SAVEHIST=100000                         # Maximum events in history file
+setopt append_history                          # Append new history lines to the history file
+setopt extended_history                        # Save timestamps with history entries
+setopt inc_append_history                      # Add new history lines incrementally to the file
+setopt share_history                           # Share history between multiple Zsh sessions
 
 # Use vi key bindings
 bindkey -v
@@ -75,6 +81,10 @@ source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# NOTE: For java install SDKMAN! to manage java versions (http://sdkman.io/)
+#   - Install java & maven via SDKMAN.
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

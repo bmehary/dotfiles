@@ -1,0 +1,122 @@
+
+# use vi key bindings
+bindkey -v
+# avoid the annoying backspace/delete issue, where backspace stops deleting characters
+bindkey -v '^?' backward-delete-char
+
+
+eval "$(direnv hook $(basename $SHELL))"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
+
+
+# Python Paths
+# Pyenv Paths
+eval "$(pyenv init --path)"
+
+# Poetry
+export PATH="$HOME/.local/bin:$PATH"
+
+# Configure poetry to create virtual environments inside the project's root directory
+poetry config virtualenvs.in-project true
+
+#poetry help completions
+
+
+# Golang
+export GOPATH=$HOME/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bmehary/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bmehary/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bmehary/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bmehary/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# kubectl completion (see => https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+#export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
+
+#export ENABLE_GCS=False
+
+# Nix related
+#source /etc/profile.d/nix.sh
+eval "$(direnv hook zsh)"
+
+#export LD_LIBRARY_PATH=/usr/local/lib
+#export LDFLAGS=-L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+
+
+
+#export LDFLAGS="-L/usr/local/opt/openblas/lib"
+#export CPPFLAGS="-I/usr/local/opt/openblas/include"
+
+#export LDFLAGS="-L/usr/local/opt/lapack/lib"
+#export CPPFLAGS="-I/usr/local/opt/lapack/include"
+#export PKG_CONFIG_PATH="/usr/local/opt/lapack/lib/pkgconfig"
+
+#export CFLAGS=-Wno-error=implicit-function-declaration
+
+
+
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+
+
+######## ALIASES ########
+
+######## PROXIES ########
+# LENS
+alias db_lens_prd="cloud_sql_proxy -enable_iam_login -instances=urbint-prod-aaa6:us-central1:lens-a57a=tcp:5440"
+alias db_lens_stg="cloud_sql_proxy -enable_iam_login -instances=urbint-1259:us-central1:lens-staging-832d=tcp:6440"
+alias db_lens_int="cloud_sql_proxy -enable_iam_login -instances=urbint-1259:us-central1:lens-integ-c635=tcp:7440"
+
+# SUPERSET
+alias db_lens_superset_prd="cloud_sql_proxy -instances=urbint-prod-aaa6:us-central1:lens-superset-fa5a=tcp:5441"
+alias db_lens_superset_stg="cloud_sql_proxy -instances=urbint-1259:us-central1:lens-staging-superset-a85f=tcp:6441"
+
+# PROSERVES
+# In 1password as Grid Staging Details. DB = Grid -> Schema = Proserves
+alias db_proserves_stg="cloud_sql_proxy -instances=urbint-1259:us-central1:staging-db=tcp:5442"
+alias db_proserves_prd="cloud_sql_proxy -instances=urbint-1259:us-central1:urb-proserves=tcp:6442"
+alias db_proserves_exp="cloud_sql_proxy -instances=urbint-1259:us-central1:ml-experimental-e14b=tcp:7442"
+
+# TLC
+alias db_tlc_int="cloud_sql_proxy -enable_iam_login -instances=urbint-1259:us-central1:lens-integ-c635=tcp:5443"
+alias db_tlc_stg="cloud_sql_proxy -enable_iam_login -instances=urbint-1259:us-central1:lens-staging-832d=tcp:6443"
+alias db_tlc_prd="cloud_sql_proxy -enable_iam_login -instances=urbint-prod-aaa6:us-central1:ticket-lifecycle-df5b=tcp:7443"
+
+
+######## PSQL #########
+# TLC
+alias psql_tlc_int="psql -h localhost -p 5443 -U ticket_lifecycle -d ticket-lifecycle-service"
+alias psql_tlc_stg="psql -h localhost -p 6443 -U ticket_lifecycle -d ticket-lifecycle-service"
+alias psql_tlc_prd="psql -h localhost -p 7443 -U ticket_lifecycle -d ticket-lifecycle-service"
+
+# LENS
+#alias psql_lens_int="psql -h localhost -p 7440 -U lens -d damage-prevention" 
+alias psql_lens_stg="psql -h localhost -p 6440 -U lens -d damage-prevention" 
+alias psql_lens_prd="psql -h localhost -p 5440 -U lens -d damage-prevention"
+
+
+
+source /Users/bmehary/.docker/init-zsh.sh || true # Added by Docker Desktop
