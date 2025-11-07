@@ -8,6 +8,8 @@ fi
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
+[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
+
 ## For help with zsh builtins and functions, run `man zshbuiltins`
 ## For help with zsh options, run `man zshoptions`
 ## For help with zsh modules, run `man zshmodules`
@@ -18,7 +20,7 @@ source $ZDOTDIR/zsh_aliases
 source $ZDOTDIR/zsh_functions
 
 # Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
-zsh_plugins=${ZDOTDIR}/zsh_plugins
+zsh_plugins=${ZDOTDIR}/plugins/zsh_plugins
 update_antidote_bundle "$zsh_plugins" "$BREW_PREFIX"
 source ${zsh_plugins}.zsh
 
@@ -28,7 +30,9 @@ for file in $ZDOTDIR/*.zsh; do
 done
 
 # Initialize completions
-autoload -Uz compinit && compinit
+ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
+autoload -Uz compinit
+compinit -d "${ZSH_COMPDUMP}"
 
 
 ######## Set Paths ########
@@ -54,7 +58,6 @@ if [ -d "$DOTFILES" ]; then add_to_path_front "$DOTFILES"; fi
 ######## End of Set Paths ########
 
 # History Configuration
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
 export HISTFILE=$XDG_CACHE_HOME/zsh/history    # History filepath
 export HISTSIZE=100000                         # Maximum events for internal history
 export SAVEHIST=100000                         # Maximum events in history file
