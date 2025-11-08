@@ -16,18 +16,16 @@ BREW_PREFIX=$(brew --prefix)
 ## For help with bash builtins run `help`
 
 ######## ZSH Configuration File ########
-source $ZDOTDIR/zsh_aliases
-source $ZDOTDIR/zsh_functions
-
-# Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
-zsh_plugins=${ZDOTDIR}/plugins/zsh_plugins
-update_antidote_bundle "$zsh_plugins" "$BREW_PREFIX"
-source ${zsh_plugins}.zsh
 
 # All custom functions and completions
 for file in $ZDOTDIR/*.zsh; do
   source "$file"
 done
+
+# Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
+zsh_plugins=${ZDOTDIR}/plugins/zsh_plugins
+update_antidote_bundle "$zsh_plugins" "$BREW_PREFIX"
+source ${zsh_plugins}.zsh
 
 # Initialize completions
 ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
