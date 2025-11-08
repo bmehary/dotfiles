@@ -1,9 +1,7 @@
 
-
 ismacos() {
 	[[ $OSTYPE = *darwin* ]] || return 1
 }
-
 
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
@@ -15,6 +13,11 @@ add_to_path_front() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH
     fi
+}
+
+paths() {
+    echo $PATH | tr ':' '\n'
+    # echo ${PATH//:/\\n}
 }
 
 update_antidote_bundle() {

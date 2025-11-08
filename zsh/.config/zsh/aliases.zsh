@@ -11,6 +11,8 @@ alias ll='ls -alF'
 
 alias diff='diff --color'
 
+alias reloadzsh='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
+
 ##### NVIM Config Switching #####
 alias kickvim='NVIM_APPNAME="nvim-kickstart" nvim'
 alias lazyvim='NVIM_APPNAME="nvim-lazy" nvim'

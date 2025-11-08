@@ -26,10 +26,10 @@ config.keys = {
     { mods = 'LEADER', key = 'm', action = wezterm.action.TogglePaneZoomState },
 
     -- Vim motion with panes
-    { mods = "CTRL", key = "h", action = wezterm.action.ActivatePaneDirection("Left") },
-    { mods = "CTRL", key = "j", action = wezterm.action.ActivatePaneDirection("Down") },
-    { mods = "CTRL", key = "k", action = wezterm.action.ActivatePaneDirection("Up") },
-    { mods = "CTRL", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
+    { mods = "LEADER", key = "h", action = wezterm.action.ActivatePaneDirection("Left") },
+    { mods = "LEADER", key = "j", action = wezterm.action.ActivatePaneDirection("Down") },
+    { mods = "LEADER", key = "k", action = wezterm.action.ActivatePaneDirection("Up") },
+    { mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
 }
 
 -- Sets WSL to linux distro as the default when opening terminal

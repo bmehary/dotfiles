@@ -5,11 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Save Homebrew’s installed location.
-BREW_PREFIX=$(brew --prefix)
-
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
-
 ## For help with zsh builtins and functions, run `man zshbuiltins`
 ## For help with zsh options, run `man zshoptions`
 ## For help with zsh modules, run `man zshmodules`
@@ -24,7 +19,7 @@ done
 
 # Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
 zsh_plugins=${ZDOTDIR}/plugins/zsh_plugins
-update_antidote_bundle "$zsh_plugins" "$BREW_PREFIX"
+update_antidote_bundle "$zsh_plugins" "$HOMEBREW_PREFIX"
 source ${zsh_plugins}.zsh
 
 # Initialize completions
@@ -36,16 +31,16 @@ compinit -d "${ZSH_COMPDUMP}"
 ######## Set Paths ########
 
 # Add Homebrew's sbin to path
-add_to_path_front "${BREW_PREFIX}/sbin"
+add_to_path_front "${HOMEBREW_PREFIX}/sbin"
 
 # GNU paths 
-add_to_path_front "${BREW_PREFIX}/opt/coreutils/libexec/gnubin"
-add_to_path_front "${BREW_PREFIX}/opt/findutils/libexec/gnubin"
-add_to_path_front "${BREW_PREFIX}/opt/gnu-getopt/bin"
-add_to_path_front "${BREW_PREFIX}/opt/gawk/libexec/gnubin"
-add_to_path_front "${BREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
-add_to_path_front "${BREW_PREFIX}/opt/grep/libexec/gnubin"
-add_to_path_front "${BREW_PREFIX}/opt/make/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/gnu-getopt/bin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/gawk/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin"
+add_to_path_front "${HOMEBREW_PREFIX}/opt/make/libexec/gnubin"
 
 # Add ~/.local/bin to PATH if it exists and is not already there
 if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
