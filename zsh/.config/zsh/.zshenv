@@ -6,6 +6,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 # Redirect ZSH configuration to XDG config home
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZDOTCACHEDIR="$XDG_CACHE_HOME/zsh"
 
 # Dotfiles
 export DOTFILES="$HOME/.dotfiles"
@@ -15,5 +16,5 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Ensure zsh dirs exist
-[[ -d $XDG_CONFIG_HOME/zsh ]] || mkdir -p $XDG_CONFIG_HOME/zsh
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
+[[ -d $ZDOTDIR ]] || mkdir -p $ZDOTDIR
+[[ -d $ZDOTCACHEDIR ]] || mkdir -p $ZDOTCACHEDIR

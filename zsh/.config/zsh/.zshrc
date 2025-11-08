@@ -18,14 +18,14 @@ for file in $ZDOTDIR/*.zsh; do
 done
 
 # Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
-zsh_plugins=${ZDOTDIR}/plugins/zsh_plugins
-update_antidote_bundle "$zsh_plugins" "$HOMEBREW_PREFIX"
-source ${zsh_plugins}.zsh
+zsh_plugins_list=${ZDOTDIR}/zsh_plugins.txt
+zsh_plugins_out=${ZDOTCACHEDIR}/zsh_plugins.zsh
+update_antidote_bundle "$zsh_plugins_list" "$zsh_plugins_out"
+source $zsh_plugins_out
 
 # Initialize completions
-ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
 autoload -Uz compinit
-compinit -d "${ZSH_COMPDUMP}"
+compinit -d $ZDOTCACHEDIR/zcompdump
 
 
 ######## Set Paths ########
