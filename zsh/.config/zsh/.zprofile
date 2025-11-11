@@ -20,7 +20,7 @@ if [[ -n "$HOMEBREW_PREFIX" ]]; then
   # Add Homebrew's sbin to path
   add_to_path_front "${HOMEBREW_PREFIX}/sbin"
 
-  # GNU paths 
+  # Override macos BSD variants w/ GNU versions (normally prefixed with g) 
   add_to_path_front "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
   add_to_path_front "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"
   add_to_path_front "${HOMEBREW_PREFIX}/opt/gnu-getopt/bin"

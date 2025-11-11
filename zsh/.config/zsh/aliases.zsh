@@ -4,14 +4,18 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Add color to folders
-alias ls='eza --icons --git'
-#alias ls='ls --color'
-alias ll='ls -alF'
-
+if [[ -x "$(command -v eza)" ]]; then
+    alias ls='eza --icons --git'
+    alias ll="eza --icons --git --long"
+else
+    alias ls='ls --color'
+    alias ll='ls -alF'
+fi
 
 alias diff='diff --color'
 
-alias reloadzsh='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
+# Reload ZSH configuration
+alias rz='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
 
 ##### NVIM Config Switching #####
 alias kickvim='NVIM_APPNAME="nvim-kickstart" nvim'
@@ -21,10 +25,7 @@ alias astrovim='NVIM_APPNAME="nvim-astro" nvim'
 
 alias vim='kickvim'
 
-# test command
-#[ $(command -v kubectl) ]; echo $? &&  echo "Hello"
-
-# [ $(command -v bat) ] && alias cat='bat' 
-[ $(command -v git) ] && alias g='git' 
-[ $(command -v kubectl) ] && alias k='kubectl' 
-
+# Useful tool aliases
+[[ -x "$(command -v bat)" ]] && alias cat='bat'
+[[ -x "$(command -v git)" ]] && alias g='git'
+[[ -x "$(command -v kubectl)" ]] && alias k='kubectl'
