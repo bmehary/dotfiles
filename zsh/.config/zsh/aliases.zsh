@@ -1,6 +1,6 @@
 
 # Reload ZSH configuration
-alias rz='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
+alias rc='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
 
 # For interactive shells, load .bash_profile when invocating bash from zsh
 [[ -f "$HOME/.bash_profile" ]] && alias bash='bash --rcfile $HOME/.bash_profile'
