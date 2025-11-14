@@ -42,7 +42,7 @@ if [ -d "$DOTFILES" ]; then add_to_path_front "$DOTFILES"; fi
 ######## End of Set Paths ########
 
 # History Configuration
-export HISTFILE=$XDG_CACHE_HOME/zsh/history    # History filepath
+export HISTFILE=$ZDOTCACHEDIR/history          # History filepath
 export HISTSIZE=100000                         # Maximum events for internal history
 export SAVEHIST=100000                         # Maximum events in history file
 setopt append_history                          # Append new history lines to the history file

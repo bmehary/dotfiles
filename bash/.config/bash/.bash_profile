@@ -5,7 +5,12 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+export BASHDOTDIR="$XDG_CONFIG_HOME/bash"
+export BASHDOTCACHEDIR="$XDG_CACHE_HOME/bash"
 
-echo "Hello from ~/.config/bash/.bash_profile"
+# Ensure zsh dirs exist
+[[ -d $BASHDOTDIR ]] || mkdir -p $BASHDOTDIR
+[[ -d $BASHDOTCACHEDIR ]] || mkdir -p $BASHDOTCACHEDIR
 
-source "$HOME/.config/bash/.bashrc"
+# Source bash config
+source "$BASHDOTDIR/.bashrc"
