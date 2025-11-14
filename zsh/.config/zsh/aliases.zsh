@@ -2,7 +2,11 @@
 # Reload ZSH configuration
 alias rz='source $ZDOTDIR/.zshrc && echo "ZSH Reloaded!"'
 
-alias cd='z'
+# For interactive shells, load .bash_profile when invocating bash from zsh
+[[ -f "$HOME/.bash_profile" ]] && alias bash='bash --rcfile $HOME/.bash_profile'
+
+# Change directory aliases
+[[ -x "$(command -v zoxide)" ]] && alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 

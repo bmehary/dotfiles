@@ -12,6 +12,9 @@ fi
 
 ######## ZSH Configuration File ########
 
+# Zsh helper functions
+source "$ZDOTDIR/.zsh_functions"
+
 # All custom functions and completions
 for file in $ZDOTDIR/*.zsh; do
   source "$file"
@@ -47,11 +50,9 @@ setopt extended_history                        # Save timestamps with history en
 setopt inc_append_history                      # Add new history lines incrementally to the file
 setopt share_history                           # Share history between multiple Zsh sessions
 
-# Use vi key bindings
-bindkey -v
-# Avoid the annoying backspace/delete issue, where backspace stops deleting characters
-bindkey -v '^?' backward-delete-char
-# set -o vi	# VI mode in bash scripts (for ref only)
+# Keybindings
+bindkey -v                                     # Enable vi keybindings
+bindkey -v '^?' backward-delete-char           # Fix backspace key in vi mode
 
 
 # Completions

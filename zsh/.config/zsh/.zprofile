@@ -1,3 +1,4 @@
+# NOTE: Consider moving to ~/.profile for login shells
 
 # Zsh helper functions
 source "$ZDOTDIR/.zsh_functions"
