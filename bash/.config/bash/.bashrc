@@ -10,6 +10,9 @@ for file in $BASHDOTDIR/*.sh; do
 done
 shopt -u nullglob
 
+# Git completions
+load_git_completions
+
 # History Configuration
 export HISTFILE=$BASHDOTCACHEDIR/history       # History filepath
 export HISTSIZE=100000                         # Maximum events for internal history
