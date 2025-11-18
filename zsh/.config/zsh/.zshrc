@@ -16,7 +16,7 @@ fi
 source "$ZDOTDIR/.zsh_functions"
 
 # All custom functions and completions
-for file in $ZDOTDIR/*.zsh; do
+for file in $ZDOTDIR/*.zsh(N); do
   source "$file"
 done
 

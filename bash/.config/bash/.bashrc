@@ -4,9 +4,11 @@
 source "$BASHDOTDIR/.bash_functions"
 
 # All custom functions and completions
+shopt -s nullglob
 for file in $BASHDOTDIR/*.sh; do
   source "$file"
 done
+shopt -u nullglob
 
 # History Configuration
 export HISTFILE=$BASHDOTCACHEDIR/history       # History filepath
