@@ -23,6 +23,6 @@ export HISTSIZE=100000                         # Maximum events for internal his
 set -o vi                                      # Enable vi keybindings
 
 # Completions
-eval "$(pyenv init --path)"
-eval "$(zoxide init bash)"
-source <(fzf --bash)
+[[ -x "$(command -v fzf)" ]] && source <(fzf --bash)
+[[ -x "$(command -v pyenv)" ]] && eval "$(pyenv init --path)"
+[[ -x "$(command -v zoxide)" ]] && eval "$(zoxide init bash)"
