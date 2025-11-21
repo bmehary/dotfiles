@@ -58,6 +58,8 @@ brew "watch"
 brew "bitwarden-cli"
 # Lazygit - A simple terminal UI for git commands
 brew "lazygit"
+# Yazi - Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Stats - macOS system monitor in your menu bar
 cask "stats"
 # Community based man pages of common usage for commands

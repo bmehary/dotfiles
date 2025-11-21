@@ -1,12 +1,13 @@
 # Helper functions for zsh configuration
 
 load_git_completions() {
-    if [ -f "$BASHDOTDIR/.git-completion.sh" ]; then
-      source "$BASHDOTDIR/.git-completion.sh"
-    else
-      if command -v git &> /dev/null; then
-        curl -s -o "$BASHDOTCACHEDIR/.git-completion.sh" https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-        source "$BASHDOTCACHEDIR/.git-completion.sh"
-      fi
+  local file="$BASHDOTCACHEDIR/.git-completion.sh"
+  if [ -f "$file" ]; then
+    source "$file"
+  else
+    if command -v git &> /dev/null; then
+      curl -s -o "$file" https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+      source "$file"
     fi
+  fi
 }
