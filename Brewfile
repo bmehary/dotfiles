@@ -60,6 +60,18 @@ brew "bitwarden-cli"
 brew "lazygit"
 # Yazi - Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Lua package manager
+brew "luarocks"
+# Tree-sitter CLI tool
+brew "tree-sitter-cli"
+# Cli to compile TeX files using the Tectonic engine
+brew "tectonic"
+# Mermaid CLI tool
+brew "mermaid-cli"
+# ImageMagick - Create, edit, compose, or convert bitmap images
+brew "imagemagick"
+# Ghostscript - Interpreter for PostScript and PDF
+brew "ghostscript"
 # Stats - macOS system monitor in your menu bar
 cask "stats"
 # Community based man pages of common usage for commands
