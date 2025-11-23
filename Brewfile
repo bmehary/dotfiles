@@ -72,6 +72,8 @@ brew "mermaid-cli"
 brew "imagemagick"
 # Ghostscript - Interpreter for PostScript and PDF
 brew "ghostscript"
+# ShellCheck - Static analysis and linting tool for shell scripts
+brew "shellcheck"
 # Stats - macOS system monitor in your menu bar
 cask "stats"
 # Community based man pages of common usage for commands
