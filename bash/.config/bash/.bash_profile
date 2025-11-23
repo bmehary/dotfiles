@@ -8,6 +8,10 @@ export XDG_DATA_HOME=$HOME/.local/share
 export BASHDOTDIR="$XDG_CONFIG_HOME/bash"
 export BASHDOTCACHEDIR="$XDG_CACHE_HOME/bash"
 
+# EDITOR
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # Ensure bash dirs exist
 [[ -d $BASHDOTDIR ]] || mkdir -p $BASHDOTDIR
 [[ -d $BASHDOTCACHEDIR ]] || mkdir -p $BASHDOTCACHEDIR
