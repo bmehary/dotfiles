@@ -20,6 +20,9 @@ for file in $ZDOTDIR/*.zsh(N); do
   source "$file"
 done
 
+# Ensure unique entries for both arrays
+typeset -U path fpath
+
 # Load ZSH Plugins via Antidote (https://antidote.sh & https://github.com/mattmc3/antidote)
 zsh_plugins_list=${ZDOTDIR}/zsh_plugins.txt
 zsh_plugins_out=${ZDOTCACHEDIR}/zsh_plugins.zsh
