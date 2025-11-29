@@ -21,6 +21,10 @@ paths() {
     # echo ${PATH//:/\\n}
 }
 
+fpaths() {
+    echo $FPATH | tr ':' '\n'
+}
+
 update_antidote_bundle() {
     local zsh_plugins_list="$1"
     local zsh_plugins_out="$2"
