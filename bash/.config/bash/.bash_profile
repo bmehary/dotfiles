@@ -12,6 +12,8 @@ export BASHDOTCACHEDIR="$XDG_CACHE_HOME/bash"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# export INPUTRC="$XDG_CONFIG_HOME/.inputrc"
+
 # Ensure bash dirs exist
 [[ -d $BASHDOTDIR ]] || mkdir -p $BASHDOTDIR
 [[ -d $BASHDOTCACHEDIR ]] || mkdir -p $BASHDOTCACHEDIR
