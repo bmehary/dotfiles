@@ -1,5 +1,17 @@
 
 # Notes
+## Install from Scratch (new)
+1. Download dotfiles git repo
+1. Install and link
+    ```zsh
+    # Install apps from brewfile
+    cd ~/.dotfiles
+    brew bundle --file ~/.dotfiles/Brewfile
+
+    # Simlink dotfiles
+    cd ~/.dotfiles/bin
+    dotfiles stow
+    ```
 ## GNU Stow
 1 . Ignoring files/folders use `.stow-local-ignore` [link-to-doc](https://www.gnu.org/software/stow/manual/stow.html#Ignore-Lists)
 
