@@ -28,9 +28,117 @@ die() {
   exit "$code"
 }
 
+macos_setup() {
+  if ! [ -x "$(command -v brew)" ]; then
+    echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  if ! [ -x "$(command -v ansible)" ]; then
+    echo "Installing Ansible"
+    brew install ansible
+  fi
+  if ! [ -x "$(command -v git)" ]; then
+    echo "Installing Git"
+    brew install git
+  fi
+  if ! [ -x "$(command -v stow)" ]; then
+    echo "Installing GNU Stow"
+    brew install stow
+  fi
+}
+
+ubuntu_setup() {
+  echo "ubuntu setup...do nothing"
+}
+
+arch_setup() {
+  echo "arch setup...do nothing"
+}
+
+get_linux_distribution() {
+  if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    echo $ID
+  else
+    echo "unknown"
+  fi
+}
+
+linux_setup() {
+  linux_distro=$(get_linux_distribution)
+  echo "Detected Linux distribution: $linux_distro"
+  case $linux_distro in
+    ubuntu|debian)
+      # Use apt-get for Ubuntu/Debian based systems
+      ubuntu_setup
+      ;;
+    arch|manjaro)
+      # Use pacman for Arch based systems
+      arch_setup
+      ;;
+    centos|fedora|rhel)
+      # Use dnf or yum for RedHat based systems
+      echo "RedHat based setup...do nothing"
+      ;;
+    *)
+      echo 'Unsupported Linux distribution'
+      ;;
+  esac
+}
+
+detect_os() {
+  local os_type
+  os_type=$(uname -s)
+
+  case "$os_type" in
+    Linux*) echo "linux" ;;
+    Darwin*) echo "darwin" ;;
+    CYGWIN*|MINGW*|MSYS*) echo "windows" ;;
+    FreeBSD|NetBSD|OpenBSD) echo "bsd" ;;
+    *) echo "unknown" ;;
+  esac
+}
+
+os_setup() {
+  dotfiles_os=$(detect_os)
+  echo "Loading Setup for detected OS: $dotfiles_os"
+  case $dotfiles_os in
+    linux) linux_setup ;;
+    darwin) macos_setup ;;
+    *) echo 'Unsupported OS' ;;
+  esac
+}  
+
 validate_script_location() {
   # Ensure script is located within the dotfiles directory 
   [[ !"${BASH_SOURCE[0]}" =~ "$DOTFILES_DIR" ]] || die "Script must be located within: $DOTFILES_DIR"
+}
+
+parse_args() {
+  POSITIONAL_ARGS=()
+  while [[ "$#" -gt 0 ]]; do
+    case "${1-}" in
+      -h|--help) usage ;;
+      -v|--verbose) set -x ;;
+      stow) shift; run_stow "$@"; exit ;;
+      -*) die "Error: Unknown option ${1-}" ;;
+      *) POSITIONAL_ARGS+=("${1-}") ;;
+    esac
+    shift
+  done
+}
+
+provision_ssh_keys() {
+  # Generate SSH keys
+  if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+    mkdir -p "$SSH_DIR"
+    chmod 700 "$SSH_DIR"
+
+    ssh-keygen -t ed25519 -f "$SSH_DIR/id_ed25519" -N "" -C "$USER@$HOSTNAME"
+
+    cat "$SSH_DIR/id_ed25519.pub" >> "$SSH_DIR/authorized_keys"
+    chmod 600 "$SSH_DIR/authorized_keys"
+  fi
 }
 
 run_stow() {
@@ -71,89 +179,6 @@ run_stow() {
   cd - >/dev/null || die "Could not change back to previous directory"
 
   echo "Stow Complete"
-}
-
-
-detect_os() {
-  if [ -f /etc/os-release ]; then
-    source /etc/os-release
-    echo $ID
-  else
-    echo $(uname -s | tr '[:upper:]' '[:lower:]')
-  fi
-}
-
-macos_setup() {
-  if ! [ -x "$(command -v brew)" ]; then
-    echo "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-  if ! [ -x "$(command -v ansible)" ]; then
-    echo "Installing Ansible"
-    brew install ansible
-  fi
-  if ! [ -x "$(command -v git)" ]; then
-    echo "Installing Git"
-    brew install git
-  fi
-  if ! [ -x "$(command -v stow)" ]; then
-    echo "Installing GNU Stow"
-    brew install stow
-  fi
-}
-
-ubuntu_setup() {
-  echo "ubuntu setup...do nothing"
-}
-
-arch_setup() {
-  echo "arch setup...do nothing"
-}
-
-parse_args() {
-  POSITIONAL_ARGS=()
-  while [[ "$#" -gt 0 ]]; do
-    case "${1-}" in
-      -h|--help) usage ;;
-      -v|--verbose) set -x ;;
-      stow) shift; run_stow "$@"; exit ;;
-      -*) die "Error: Unknown option ${1-}" ;;
-      *) POSITIONAL_ARGS+=("${1-}") ;;
-    esac
-    shift
-  done
-}
-
-os_setup() {
-  dotfiles_os=$(detect_os)
-  echo "Loading Setup for detected OS: $dotfiles_os"
-  case $dotfiles_os in
-    ubuntu)
-      ubuntu_setup
-      ;;
-    arch)
-      arch_setup
-      ;;
-    darwin)
-      macos_setup
-      ;;
-    *)
-      echo 'Unsupported OS'
-      ;;
-  esac
-}
-
-provision_ssh_keys() {
-  # Generate SSH keys
-  if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
-    mkdir -p "$SSH_DIR"
-    chmod 700 "$SSH_DIR"
-
-    ssh-keygen -t ed25519 -f "$SSH_DIR/id_ed25519" -N "" -C "$USER@$HOSTNAME"
-
-    cat "$SSH_DIR/id_ed25519.pub" >> "$SSH_DIR/authorized_keys"
-    chmod 600 "$SSH_DIR/authorized_keys"
-  fi
 }
 
 run_ansible_playbook() {
