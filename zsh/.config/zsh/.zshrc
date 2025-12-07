@@ -37,10 +37,10 @@ compinit -d $ZDOTCACHEDIR/zcompdump
 ######## Set Paths ########
 
 # Add ~/.local/bin to PATH if it exists and is not already there
-if [ -d "$HOME/.local/bin" ]; then add_to_path_front "$HOME/.local/bin"; fi
+if [ -d "$HOME/.local/bin" ]; then path=("$HOME/.local/bin" $path); fi
 
 # Dotfiles helper script
-if [ -d "$DOTFILES" ]; then add_to_path_front "$DOTFILES"; fi
+if [ -d "$DOTFILES" ]; then path=("$DOTFILES/bin" "$DOTFILES/scripts" $path); fi
 
 ######## End of Set Paths ########
 
@@ -54,6 +54,10 @@ setopt inc_append_history                      # Add new history lines increment
 setopt share_history                           # Share history between multiple Zsh sessions
 
 # Keybindings
+# Note:
+#  - Zsh uses ZLE (Zsh Line Editor) https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
+#  - ZLE Builtin functions: https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
+#  - To see key codes ctrl-v then press the key
 bindkey -v                                     # Enable vi keybindings
 bindkey -v '^?' backward-delete-char           # Fix backspace key in vi mode
 

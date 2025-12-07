@@ -1,7 +1,90 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 
-echo "Hello from dotfiles"
+DOTFILES_DIR="${DOTFILES:-$HOME/.dotfiles}"
+SSH_DIR="$HOME/.ssh"
+
+usage() {
+  cat <<EOF
+Usage: $(basename "${BASH_SOURCE[0]}") [-h] [-v] <sub-command>
+
+Script the creation of a new worktree.
+
+Available options:
+
+-h, --help                    Print this help and exit
+-v, --verbose                 Print script debug info
+
+Subcommands:
+stow                          Run GNU Stow
+EOF
+  exit
+}
+
+die() {
+  local msg=$1
+  local code=${2-1} # default exit status 1
+  echo "$msg"
+  exit "$code"
+}
+
+_validate_script_location() {
+  # Ensure script is located within the dotfiles directory 
+  [[ !"${BASH_SOURCE[0]}" =~ "$DOTFILES_DIR" ]] || die "Script must be located within: $DOTFILES_DIR"
+}
+
+_run_stow() {
+  # Stow commands: https://www.gnu.org/software/stow/manual/html_node/Invoking-Stow.html
+  # Notes:
+  #  -v : verbose
+  #  -n : dry-run
+  #  -R : restow
+  #  -D : unstow
+
+  input_params="$@" 
+
+  # Change to dotfiles directory 
+  cd "$DOTFILES_DIR" || die "Could not change directory to $DOTFILES_DIR"
+
+  EXCLUDE="ansible bin scripts vscode"
+  PACKAGES_TO_STOW=()
+  for pkg in */; do
+    # Remove the trailing slash for the directory name
+    PACKAGE_NAME=${pkg%/}
+
+    if [[ " $EXCLUDE " =~ " $PACKAGE_NAME " ]]; then
+      echo "Skipping excluded package: $PACKAGE_NAME"
+      continue
+    fi
+
+    PACKAGES_TO_STOW+=("$PACKAGE_NAME")
+  done
+
+  # Check if the array is empty before calling stow
+  if [ ${#PACKAGES_TO_STOW[@]} -eq 0 ]; then
+    echo "Nothing to stow. Exiting."
+  else
+    echo "Packages to stow: ${PACKAGES_TO_STOW[*]}"
+    stow ${input_params:+"$input_params"} "${PACKAGES_TO_STOW[@]}" 
+  fi
+
+  cd - >/dev/null || die "Could not change back to previous directory"
+
+  echo "Stow Complete"
+}
+
+_validate_script_location
+
+while [[ "$#" -gt 0 ]]; do
+  case "${1-}" in
+    -h|--help) usage ;;
+    -v|--verbose) set -x ;;
+    stow) shift; _run_stow "$@"; exit ;;
+    -*) die "Error: Unknown option ${1-}" ;;
+    *) POSITIONAL_ARGS+=("${1-}") ;;
+  esac
+  shift
+done
 
 detect_os() {
   if [ -f /etc/os-release ]; then
@@ -52,6 +135,16 @@ case $dotfiles_os in
     ;;
 esac
 
+# Generate SSH keys
+if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+  mkdir -p "$SSH_DIR"
+  chmod 700 "$SSH_DIR"
+
+  ssh-keygen -t ed25519 -f "$SSH_DIR/id_ed25519" -N "" -C "$USER@$HOSTNAME"
+
+  cat "$SSH_DIR/id_ed25519.pub" >> "$SSH_DIR/authorized_keys"
+  chmod 600 "$SSH_DIR/authorized_keys"
+fi
 
 if ! [ -x "$(command -v ansible)" ]; then
     echo "Ansible not found. Please install manually."
@@ -59,9 +152,6 @@ if ! [ -x "$(command -v ansible)" ]; then
 fi
 
 echo "Running ansible playbook"
-
-
-DOTFILES_DIR="$HOME/.dotfiles"
 
 ANSIBLE_DIR="$DOTFILES_DIR/ansible"
 ANSIBLE_MAIN_PATH=${ANSIBLE_DIR}/main.yml

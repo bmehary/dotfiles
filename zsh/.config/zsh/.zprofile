@@ -19,14 +19,17 @@ fi
 # Set homebrew paths to override macOS default tools
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
   # Add Homebrew's sbin to path
-  add_to_path_front "${HOMEBREW_PREFIX}/sbin"
-
+  path=("${HOMEBREW_PREFIX}/sbin" $path)
+  
   # Override macos BSD variants w/ GNU versions (normally prefixed with g) 
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/gnu-getopt/bin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/gawk/libexec/gnubin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin"
-  add_to_path_front "${HOMEBREW_PREFIX}/opt/make/libexec/gnubin"
+  path=(
+    "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
+    "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"
+    "${HOMEBREW_PREFIX}/opt/gnu-getopt/bin"
+    "${HOMEBREW_PREFIX}/opt/gawk/libexec/gnubin"
+    "${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
+    "${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin"
+    "${HOMEBREW_PREFIX}/opt/make/libexec/gnubin"
+    $path
+  )
 fi

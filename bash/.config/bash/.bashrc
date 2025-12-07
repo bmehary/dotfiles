@@ -20,6 +20,10 @@ export HISTSIZE=100000                         # Maximum events for internal his
 # COMMAND_PROMPT='history -a'
 
 # Keybindings
+# Note:
+#  - Bash uses GNU Readline https://tiswww.case.edu/php/chet/readline/readline.html
+#  - GNU Readline bindable commands https://tiswww.case.edu/php/chet/readline/readline.html#Bindable-Readline-Commands
+#  - To see key codes ctrl-v then press the key
 set -o vi                                      # Enable vi keybindings
 
 # Completions

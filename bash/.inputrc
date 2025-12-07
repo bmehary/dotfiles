@@ -1,0 +1,10 @@
+
+# Configuration file for GNU Readline - https://tiswww.case.edu/php/chet/readline/rltop.html
+
+# Notes
+#   1. On macos, it uses editline (~/.editrc) instead of readline
+#   2. To move ~/.inputrc to a different location: https://tiswww.cwru.edu/php/chet/readline/rluserman.html#Readline-Init-File
+#      Example file: https://www.gnu.org/software/bash/manual/html_node/Sample-Init-File.html
+
+# Uncomment this line to import from `/etc/inputrc`
+# include /etc/inputrc

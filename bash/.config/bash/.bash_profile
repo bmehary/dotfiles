@@ -8,6 +8,9 @@ export XDG_DATA_HOME=$HOME/.local/share
 export BASHDOTDIR="$XDG_CONFIG_HOME/bash"
 export BASHDOTCACHEDIR="$XDG_CACHE_HOME/bash"
 
+# Dotfiles
+export DOTFILES="$HOME/.dotfiles"
+
 # EDITOR
 export EDITOR="nvim"
 export VISUAL="nvim"

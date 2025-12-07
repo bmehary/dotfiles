@@ -1,0 +1,3 @@
+# Default commands to pass to stow
+--verbose
+--no-folding

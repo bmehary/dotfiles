@@ -19,6 +19,8 @@ else
     alias ll='ls -alF'
 fi
 
+alias tree='tree -C'
+
 # Neovim distro aliases 
 if [[ -x "$(command -v nvim)" ]]; then
     alias kickvim='NVIM_APPNAME="nvim-kickstart" nvim'
