@@ -4,6 +4,9 @@ set -Eeuo pipefail
 
 # Reference: https://github.com/nicknisi/dotfiles/blob/main/bin/git-create-worktree
 
+# Simple steps:
+# 1. Create branch to start with (git checkout -b <branch> <commit-ish> or git checkout <branch>)
+# 2. Create worktree (git worktree add <worktree-path> <branch>)
 
 ## Use Cases:
 # 1. Create a new worktree based on local branch
@@ -14,8 +17,6 @@ set -Eeuo pipefail
 #    git wtco <worktree-path> <branch>
 # 4. Create a new worktree and branch based on specific commit
 #    git wtco <worktree-path> <branch> -b <commit-ish>
-
-# Note: Try to just use 'git wta' 
 
 usage() {
   cat <<EOF
@@ -38,7 +39,6 @@ die() {
   echo "$msg"
   exit "$code"
 }
-
 
 # Default values
 base=''
@@ -92,6 +92,5 @@ else
   git branch --set-upstream-to="origin/$branch"
 fi
 popd > /dev/null
-
 
 echo "Finished."
