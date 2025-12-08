@@ -194,8 +194,6 @@ run_ansible_playbook() {
 }
 
 main() {
-  echo "running main()..."
-
   validate_script_location 
   parse_args "$@"
   os_setup

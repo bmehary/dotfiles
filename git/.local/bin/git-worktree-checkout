@@ -5,10 +5,21 @@ set -Eeuo pipefail
 # Reference: https://github.com/nicknisi/dotfiles/blob/main/bin/git-create-worktree
 
 
-# TODO: Create a real usage for the script
+## Use Cases:
+# 1. Create a new worktree based on local branch
+#    git wtco <worktree-path> <branch> -b <local-base-branch>
+# 2. Create a new worktree based on remote branch
+#    git wtco <worktree-path> <branch> -b origin/<remote-base-branch>
+# 3. Create a new worktree and branch based on main
+#    git wtco <worktree-path> <branch>
+# 4. Create a new worktree and branch based on specific commit
+#    git wtco <worktree-path> <branch> -b <commit-ish>
+
+# Note: Try to just use 'git wta' 
+
 usage() {
   cat <<EOF
-Usage: $(basename "${BASH_SOURCE[0]}") [-h] [-v] [-B] <worktree-path> <branch>
+Usage: $(basename "${BASH_SOURCE[0]}") [-h] [-v] [-b] <worktree-path> <branch>
 
 Script the creation of a new worktree.
 
@@ -16,7 +27,7 @@ Available options:
 
 -h, --help                    Print this help and exit
 -v, --verbose                 Print script debug info
--B, --base                    The branch to use as the base for the new worktree (default: main)
+-b, --base                    The branch or commit-ish to use as the base for the new worktree (default: main)
 EOF
   exit
 }
@@ -30,31 +41,25 @@ die() {
 
 
 # Default values
-base='origin/main'
+base=''
 
 while [[ "$#" -gt 0 ]]; do
-    case "${1-}" in
-        -h|--help) usage ;;
-        -v|--verbose) set -x ;;
-        -B|--base)
-            base="${2-}"
-            shift
-            ;;
-        -*) die "Error: Unknown option ${1-}" ;;
-        *) 
-            POSITIONAL_ARGS+=("${1-}")
-            ;;
-    esac
-    shift
+  case "${1-}" in
+    -h|--help) usage ;;
+    -v|--verbose) set -x ;;
+    -b|--base) base="${2-}"; shift ;;
+    -*) die "Error: Unknown option ${1-}" ;;
+    *) POSITIONAL_ARGS+=("${1-}") ;;
+  esac
+  shift
 done
 
-set -- "${POSITIONAL_ARGS[@]}"
-
-args=("$@")
-
 # check required params and arguments
-[[ ${#args[@]} -lt 2 ]] && die "Too few script arguments"
-[[ ${#args[@]} -gt 2 ]] && die "Too many script arguments"
+[[ ${#POSITIONAL_ARGS[@]} -lt 2 ]] && die "Too few script arguments"
+[[ ${#POSITIONAL_ARGS[@]} -gt 2 ]] && die "Too many script arguments"
+
+set -- "${POSITIONAL_ARGS[@]}"
+args=("$@")
 
 worktree="${args[0]}"
 branch="${args[1]}"
@@ -66,22 +71,25 @@ echo "Worktree: $worktree"
 ###### CREATE WORKTREE ######
 if [[ -n "$(git branch --list "$branch")" ]]; then
   echo "Existing branch found: $branch"
-  echo "Generating new worktree from existing branch: $branch"
+  echo "Creating new worktree from existing branch: $branch"
   git worktree add "$worktree" "$branch"
 else
   echo "No existing branch found"
-  echo "Generating new worktree: $worktree"
-  git worktree add -b "$branch" "$worktree" "$base"
+  echo "Creating new worktree: $worktree linked to branch: $branch"
+  git worktree add -b "$branch" "$worktree" ${base:+"$base"}
 fi
+
+# NOTE:
+#   To check if branch is tracked: git config --get branch.ghfw.remote
 
 ###### SET UPSTREAM ######
 pushd "$worktree" > /dev/null
 if [[ -z "$(git ls-remote --heads origin "$branch")" ]]; then
-    echo "Branch '$branch' does not exist on remote."
+  echo "Branch '$branch' does not exist on remote."
 else
-    echo "Branch '$branch' exists. Setting upstream."
-    echo "Setting upstream branch to 'origin/$branch'" 
-    git branch --set-upstream-to="origin/$branch"
+  echo "Branch '$branch' exists. Setting upstream."
+  echo "Setting upstream branch to 'origin/$branch'" 
+  git branch --set-upstream-to="origin/$branch"
 fi
 popd > /dev/null
 
