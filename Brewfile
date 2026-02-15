@@ -85,6 +85,12 @@ cask "aerospace"
 # JankyBorders
 brew "felixkratz/formulae/borders"
 
+# AI Tools
+# Gemini CLI tool
+brew "gemini-cli"
+# Opencode CLI tool
+brew "opencode"
+
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
 brew "bat"
