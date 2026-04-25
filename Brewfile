@@ -7,6 +7,9 @@ tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "nikitabobko/tap"
 
+# Window tiling manager (uses "nikitabobko/tap")
+cask "nikitabobko/tap/aerospace"
+
 ## Packages
 # Modern Bash Shell
 brew "bash"
@@ -80,16 +83,22 @@ cask "stats"
 # brew "tldr"
 # Spotlight on steroids
 cask "raycast"
-# Window tiling manager (uses "nikitabobko/tap")
-cask "aerospace"
 # JankyBorders
 brew "felixkratz/formulae/borders"
+# FFmpeg - A complete, cross-platform solution to record, convert and stream audio and video
+brew "ffmpeg"
+# Gitleaks - SAST tool for detecting hardcoded secrets
+brew "gitleaks"
+# UV - Fast, zero-config Rust-based task runner 
+brew "uv"
 
 # AI Tools
 # Gemini CLI tool
 brew "gemini-cli"
 # Opencode CLI tool
 brew "opencode"
+# Ollama - Run and manage local AI models with ease
+brew "ollama"
 
 # ----- Modern *nix tools ----- https://github.com/ibraheemdev/modern-unix
 # Bat - Cat clone with syntax highlighting and Git integration
