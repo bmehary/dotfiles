@@ -152,7 +152,7 @@ brew "bats-core"
 # brew upgrade
 # brew doctor
 # brew cleanup
-# brew tapi
+# brew tap
 # brew outdated
 
 ## Brewfile related cli commands ##
