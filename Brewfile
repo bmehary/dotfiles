@@ -143,7 +143,7 @@ brew "bats-core"
 # Casks are GUI applications and formulaes are cli
 # Cask installed: brew install --cask <package>
 # Formulae installed: brew install <package>
- 
+
 ## cli commands ##
 # brew list
 # brew install <package>
@@ -165,3 +165,7 @@ brew "bats-core"
 
 ## Upgrade cask
 # brew upgrade --cask $(brew list --cask)
+
+## Advanced
+# brew bundle list | sort >> Brewfile.Installed
+# echo "$(<Brewfile)" | grep -Ev '^(#|$)' |  sort > Brewfile.FileSorted 

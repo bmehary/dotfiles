@@ -33,3 +33,7 @@ if [[ -n "$HOMEBREW_PREFIX" ]]; then
     $path
   )
 fi
+
+# TODO: Delete this section once MacPorts is no longer used
+# Add MacPorts paths to override macOS default tools
+path=("/opt/local/bin" "/opt/local/sbin" $path)
